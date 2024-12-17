@@ -899,7 +899,7 @@ public class SIPClientTransaction extends SIPTransaction implements
 
 		} catch (IOException ex) {
 			this.setState(TransactionState.TERMINATED);
-			throw new SipException("IO Error sending request");
+			throw new SipException("IO Error sending request", ex);
 
 		}
 

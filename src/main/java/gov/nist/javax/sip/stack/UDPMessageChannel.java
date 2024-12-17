@@ -607,7 +607,7 @@ public class UDPMessageChannel extends MessageChannel implements
 				// Bind the socket to the stack address in case there
 				// are multiple interfaces on the machine (feature reqeust
 				// by Will Scullin) 0 binds to an ephemeral port.
-				// sock = new DatagramSocket(0,sipStack.stackInetAddress);
+				sock = new DatagramSocket(0,sipStack.stackInetAddress);
 			} else {
 				// bind to any interface and port.
 				sock = new DatagramSocket();
