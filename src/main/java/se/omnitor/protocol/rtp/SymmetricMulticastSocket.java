@@ -25,7 +25,7 @@ import java.net.MulticastSocket;
 /**
  * A MulticastSocket implementation that can send and receive on the same port.
  *
- * @author Erik Zetterstr�m, Omnitor AB
+ * @author Erik Zetterstrm, Omnitor AB
  */
 public class SymmetricMulticastSocket extends MulticastSocket {
 

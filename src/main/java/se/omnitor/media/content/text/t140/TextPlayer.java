@@ -45,7 +45,7 @@ import se.omnitor.media.protocol.text.t140.TextFormat;
 /** 
  * Receives text, and puts the text in a FifoBuffer.
  *
- * @author Erik Zetterstr�m, Omnitor AB
+ * @author Erik Zetterstrm, Omnitor AB
  * @author Andreas Piirimets, Omnitor AB
  */
 public class TextPlayer implements Renderer, BufferControl, Owned {

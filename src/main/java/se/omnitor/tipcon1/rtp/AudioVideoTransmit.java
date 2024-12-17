@@ -600,7 +600,7 @@ public class AudioVideoTransmit implements ActionListener {
 
 		    }
 */
-                    // Borde det inte vara chosen=null precis h�r ox�?
+                    // Borde det inte vara chosen=null precis hr ox?
 
                 }
                 else {
@@ -1058,7 +1058,7 @@ public class AudioVideoTransmit implements ActionListener {
     /**
      * This listener handles changes on the slider.
      *
-     * @author Erik Zetterstr�m
+     * @author Erik Zetterstrm
      */
    class SliderListener implements ChangeListener {
 

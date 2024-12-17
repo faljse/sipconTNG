@@ -44,7 +44,7 @@ import se.omnitor.protocol.rtp.text.RtpTextBuffer;
  * According to "RFC2793 - RTP Payload for text conversation" 
  * transmitted text must be in UTF-8 form. <br>
  *
- * @author Erik Zetterstr�m, Omnitor AB
+ * @author Erik Zetterstrm, Omnitor AB
  * @author Andreas Piirimets, Omnitor AB
  */
 public class TextDePacketizer implements Codec {

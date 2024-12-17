@@ -344,12 +344,12 @@ public class CallProcessor extends Processor {
 	// From: Local URI och tag
 	// Call-ID: Samtalets Call-ID
 	// CSeq: Samtalets
-	// Om Route-set �r tom, remote target URI m�ste vara i Request-URI
-	// Om Route-set inte �r tom och det f�rsta URIt i route-set inneh�ller
-	//   inte lr-parameter, m�ste man s�tta remote target URI i Request-URI och
-	//   m�ste inkludera en routeheader field inneh�llandes alla route-set-
-	//   v�rden i ordnin, inkl. alla parametrar. Sedan m�ste vi s�tta
-	//   remote target URI in i route header field som det sista v�rdet.
+	// Om Route-set r tom, remote target URI mste vara i Request-URI
+	// Om Route-set inte r tom och det frsta URIt i route-set innehller
+	//   inte lr-parameter, mste man stta remote target URI i Request-URI och
+	//   mste inkludera en routeheader field innehllandes alla route-set-
+	//   vrden i ordnin, inkl. alla parametrar. Sedan mste vi stta
+	//   remote target URI in i route header field som det sista vrdet.
 	// Max-Forwards: 70
 	// Via: Som i REGISTER
 	//
@@ -378,12 +378,12 @@ public class CallProcessor extends Processor {
 	// From: Local URI och tag
 	// Call-ID: Samtalets Call-ID
 	// CSeq: Samtalets
-	// Om Route-set �r tom, remote target URI m�ste vara i Request-URI
-	// Om Route-set inte �r tom och det f�rsta URIt i route-set inneh�ller
-	//   inte lr-parameter, m�ste man s�tta remote target URI i Request-URI och
-	//   m�ste inkludera en routeheader field inneh�llandes alla route-set-
-	//   v�rden i ordnin, inkl. alla parametrar. Sedan m�ste vi s�tta
-	//   remote target URI in i route header field som det sista v�rdet.
+	// Om Route-set r tom, remote target URI mste vara i Request-URI
+	// Om Route-set inte r tom och det frsta URIt i route-set innehller
+	//   inte lr-parameter, mste man stta remote target URI i Request-URI och
+	//   mste inkludera en routeheader field innehllandes alla route-set-
+	//   vrden i ordnin, inkl. alla parametrar. Sedan mste vi stta
+	//   remote target URI in i route header field som det sista vrdet.
 	// Max-Forwards: 70
 	// Via: Som i REGISTER
 	//

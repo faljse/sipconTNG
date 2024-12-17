@@ -64,7 +64,7 @@ public class Swedish extends English {
 	            "Bakgrund");
 
 	setProperty("se.omnitor.tipcon1.gui.fontdialog.OUTGOING_TEXT",
-	            "Utg�ende text");
+	            "Utgende text");
 
 	setProperty("se.omnitor.tipcon1.gui.fontdialog.INCOMING_TEXT",
 	            "Inkommande text");
@@ -76,13 +76,13 @@ public class Swedish extends English {
 	            "Avbryt");
 
 	setProperty("se.omnitor.tipcon1.gui.fontdialog.DEFAULT",
-	"Standardinst�llningar");
+	"Standardinstllningar");
 	
 	setProperty("se.omnitor.tipcon1.gui.fontdialog.RESTORE_DEFAULT_OPTION",
-				"Alla nuvarande inst�llningar byts mot\nstandardinst�llningar. �r du s�ker?");
+				"Alla nuvarande instllningar byts mot\nstandardinstllningar. r du sker?");
 	  
 	setProperty("se.omnitor.tipcon1.gui.fontdialog.RESTORE_DEFAULT",
-				"Standardinst�llningar");
+				"Standardinstllningar");
 	
     setProperty("se.omnitor.tipcon1.ProgramWindow.FILE",
                     "Arkiv");
@@ -91,22 +91,22 @@ public class Swedish extends English {
 
         setProperty("se.omnitor.tipcon1.ProgramWindow.EXIT", "Avsluta");
 
-        setProperty("se.omnitor.tipcon1.ProgramWindow.SETTINGS", "Inst�llningar");
+        setProperty("se.omnitor.tipcon1.ProgramWindow.SETTINGS", "Instllningar");
 
 	setProperty("se.omnitor.tipcon1.ProgramWindow.AUDIO", "Ljud");
 
 	setProperty("se.omnitor.tipcon1.ProgramWindow.VIDEO", "Video");
 
-	setProperty("se.omnitor.tipcon1.ProgramWindow.TEXT_SETTINGS", "Textinst�llningar");
+	setProperty("se.omnitor.tipcon1.ProgramWindow.TEXT_SETTINGS", "Textinstllningar");
 
 	setProperty("se.omnitor.tipcon1.ProgramWindow.ALERT", "Varseblivning");
 
         setProperty("se.omnitor.tipcon1.ProgramWindow.alert.INFO_TEXT",
-            "F�r att Varseblivning ska fungera beh�ver\n" +
-	    "du placera en k�rbar bin�rfil som heter\n" +
+            "Fr att Varseblivning ska fungera behver\n" +
+	    "du placera en krbar binrfil som heter\n" +
 	    "alert2.exe i c:\\windows\\system32. Kryssa\n" +
-	    "i rutan och Sipcon1 kommer att k�ra \n" +
-	    "bin�rfilen vid inkommande samtal.");
+	    "i rutan och Sipcon1 kommer att kra \n" +
+	    "binrfilen vid inkommande samtal.");
 
 	setProperty("se.omnitor.tipcon1.ProgramWindow.TEXT_FONT", "Text typsnitt");
 
@@ -114,13 +114,13 @@ public class Swedish extends English {
 
 	setProperty("se.omnitor.tipcon1.ProgramWindow.DETECT_DEVICES", "Initialisera enheter ");
 
-	setProperty("se.omnitor.tipcon1.ProgramWindow.LANGUAGE", "Spr�k");
+	setProperty("se.omnitor.tipcon1.ProgramWindow.LANGUAGE", "Sprk");
 
 	setProperty("se.omnitor.tipcon1.ProgramWindow.REGISTER", "Registrera");
 
-	setProperty("se.omnitor.tipcon1.ProgramWindow.HELP", "Hj�lp");
+	setProperty("se.omnitor.tipcon1.ProgramWindow.HELP", "Hjlp");
 
-	setProperty("se.omnitor.tipcon1.ProgramWindow.HELP_TOPICS", "Hj�lpavsnitt");
+	setProperty("se.omnitor.tipcon1.ProgramWindow.HELP_TOPICS", "Hjlpavsnitt");
 
 	setProperty("se.omnitor.tipcon1.ProgramWindow.FUNDING_CREDITS", "Om bidragsgivarna");
 
@@ -135,10 +135,10 @@ public class Swedish extends English {
             "Engelska");
 
 	setProperty("se.omnitor.tipcon1.gui.RESTART_REQUIRED",
-             "omstart kr�vs");
+             "omstart krvs");
 
 	setProperty("se.omnitor.tipcon1.AppController.GUI_ERROR",
-		    "ALLVARLIGT FEL!\n\nKan inte skapa anv�ndargr�nssnitt!\n" +
+		    "ALLVARLIGT FEL!\n\nKan inte skapa anvndargrnssnitt!\n" +
 		    "Programmet avslutas.");
 
 	setProperty("se.omnitor.tipcon1.AppController.INIT_TEXT",
@@ -153,43 +153,43 @@ public class Swedish extends English {
 		    "Programmet avslutas.");
 
 	setProperty("se.omnitor.tipcon1.AppController.INIT_NETWORK",
-		    "Initialiserar n�tverk");
+		    "Initialiserar ntverk");
 
 	setProperty("se.omnitor.tipcon1.AppController.NETWORK_ERROR",
 		    "VARNING:\n\n" +
-		    "Inget n�tverk hittades p� denna dator. Du kommer\n" +
+		    "Inget ntverk hittades p denna dator. Du kommer\n" +
 		    "kanske inte kunna ringa eller ta emot samtal.");
 
 	setProperty("se.omnitor.tipcon1.AppController.INIT_CAPTURE",
 		    "Initialiserar enheter");
 
 	setProperty("se.omnitor.tipcon1.AppController.SETUP_NA",
-		    "Enhetskonfiguration saknades, s�ker enheter .. ");
+		    "Enhetskonfiguration saknades, sker enheter .. ");
 
 	setProperty("se.omnitor.tipcon1.AppController.DEVICE_CHANGE",
-		    "Enhetskonfigurationen har �ndrats! S�ker enheter ..");
+		    "Enhetskonfigurationen har ndrats! Sker enheter ..");
 
 	setProperty("se.omnitor.tipcon1.AppController.LOAD_SETTINGS",
-		    "Laddar inst�llningar");
+		    "Laddar instllningar");
 
 	setProperty("se.omnitor.tipcon1.AppController.CREATE_GUI",
-		    "Skapar anv�ndargr�nssnitt");
+		    "Skapar anvndargrnssnitt");
 
 	setProperty("se.omnitor.tipcon1.AppController.CLOSING",
-		    "St�nger ..");
+		    "Stnger ..");
 
 	setProperty("se.omnitor.tipcon1.AppController.MEDIA_SETUP",
 		    "Mottagaren har svarat, kopplar upp media ..");
 
 	setProperty("se.omnitor.tipcon1.AppController.SIP_SEND_PROBLEM",
-		    "Ett problem uppstod vid pakets�ndning, \n" +
+		    "Ett problem uppstod vid paketsndning, \n" +
 		    "samtalet kopplas ner.");
 
 	setProperty("se.omnitor.tipcon1.AppController.CONNECTED",
 		    "Ansluten");
 
 	setProperty("se.omnitor.tipcon1.AppController.MISSED_CALL_FROM",
-		    "Missat samtal fr�n");
+		    "Missat samtal frn");
 
 	setProperty("se.omnitor.tipcon1.AppController.TERMINATED",
 		    "Samtalet nerkopplat.");
@@ -207,33 +207,33 @@ public class Swedish extends English {
 			"Ditt samtal blev avvisat.");
 
 	setProperty("se.omnitor.tipcon1.AppController.USER_NOT_ONLINE",
-    		"Anv�ndaren har terminalen avst�ngd.");
+    		"Anvndaren har terminalen avstngd.");
 
 	setProperty("se.omnitor.tipcon1.AppController.QUEUED",
-		    "Ditt samtal har placerats i k�.");
+		    "Ditt samtal har placerats i k.");
 
 	setProperty("se.omnitor.tipcon1.AppController.WAITING_FOR_ANSWER",
-		    "V�ntar p� att mottagaren skall svara ..");
+		    "Vntar p att mottagaren skall svara ..");
 
 	setProperty("se.omnitor.tipcon1.AppController.INTERNAL_ERROR",
 		    "Internt fel");
 
 	setProperty("se.omnitor.tipcon1.AppController.DOES_NOT_EXIST",
-		    "�r inte inloggad.");
+		    "r inte inloggad.");
 
 	setProperty("se.omnitor.tipcon1.AppController.BUSY",
-		    "Mottagaren �r upptagen i ett samtal.");
+		    "Mottagaren r upptagen i ett samtal.");
 
 	setProperty("se.omnitor.tipcon1.AppController.NO_MEDIA_MATCH",
-		    "Mottagarens utrustning �r inte kompatibel!\n\n" +
-		    "Om audio eller text �r inaktiverat, aktivera\n" +
-		    "och f�rs�k igen.");
+		    "Mottagarens utrustning r inte kompatibel!\n\n" +
+		    "Om audio eller text r inaktiverat, aktivera\n" +
+		    "och frsk igen.");
 
 	setProperty("se.omnitor.tipcon1.AppController.REG_TO",
 		    "Registrerar till");
 
 	setProperty("se.omnitor.tipcon1.AppController.PASSWORD_REQUIRED_FOR" ,
-		    "L�senord kr�vs f�r");
+		    "Lsenord krvs fr");
 
 	setProperty("se.omnitor.tipcon1.AppController.TRYING" ,
 		    "Trying ..");
@@ -242,76 +242,76 @@ public class Swedish extends English {
 		    "Misslyckades!");
 
 	setProperty("se.omnitor.tipcon1.AppController.SIP_PORT_ERROR",
-		    "Ett allvarligt fel uppstod n�r SIP-porten �ndrades!");
+		    "Ett allvarligt fel uppstod nr SIP-porten ndrades!");
 
 	setProperty("se.omnitor.tipcon1.AppController.INVALID_PROXY",
 		    "Ogiltig proxy-adress!");
 
 	setProperty("se.omnitor.tipcon1.AppController.USER_SET_ERROR",
-		    "Kan inte �ndra anv�ndaren!");
+		    "Kan inte ndra anvndaren!");
 
 	setProperty("se.omnitor.tipcon1.AppController.NO_SIP_ADDRESS",
 		    "Ingen SIP-adress har angivits.");
 
 	setProperty("se.omnitor.tipcon1.AppController.NO_NETWORK" ,
-		    "Det g�r inte att ringa, datorn �r inte kopplad\n" +
-		    "till ett n�tverk!\n");
+		    "Det gr inte att ringa, datorn r inte kopplad\n" +
+		    "till ett ntverk!\n");
 
 	setProperty("se.omnitor.tipcon1.AppController.TIPCON1_DEMO_VIDEO" ,
-		    "Du anv�nder en demoversion av TIPcon1. Videobilden i samtal\n" +
+		    "Du anvnder en demoversion av TIPcon1. Videobilden i samtal\n" +
 		    "fungerar endast i fem minuter.\n \n" +
-		    "V�nligen kontakta info@omnitor.se om du �r intresserad\n" +
-		    "av en licensierad version utan begr�nsningar.");
+		    "Vnligen kontakta info@omnitor.se om du r intresserad\n" +
+		    "av en licensierad version utan begrnsningar.");
 
 	setProperty("se.omnitor.tipcon1.AppController.ACTIVATE_MEDIA" ,
-		    "Minst ett media (audio eller text) m�ste vara " +
-		    "aktiverat f�r att samtal skall kunna g�ras.");
+		    "Minst ett media (audio eller text) mste vara " +
+		    "aktiverat fr att samtal skall kunna gras.");
 
         setProperty("se.omnitor.tipcon1.AppController.CALL_ERROR",
-                    "Ett fel uppstod n�r samtalsf�rfr�gan skickades!\n\n" +
-                    "Var god kontrollera n�tverksinst�llningarna och " +
-                    "f�rs�k igen.");
+                    "Ett fel uppstod nr samtalsfrfrgan skickades!\n\n" +
+                    "Var god kontrollera ntverksinstllningarna och " +
+                    "frsk igen.");
 
         setProperty("se.omnitor.tipcon1.AppController.ADDRESS_ERROR",
-                    "Ett fel uppstod n�r samtalsf�rfr�gan skickades!\n\n" +
+                    "Ett fel uppstod nr samtalsfrfrgan skickades!\n\n" +
                     "Var god kontrollera mottagaradressen och " +
-                    "f�rs�k igen.");
+                    "frsk igen.");
 
         setProperty("se.omnitor.tipcon1.AppController.WAIT_FOR_DETECT",
-                    "Detekteringen av n�tverket �r ej f�rdig, vad god v�nta.");
+                    "Detekteringen av ntverket r ej frdig, vad god vnta.");
 
         setProperty("se.omnitor.tipcon1.AppController.STUN_ERROR",
-                    "Kan inte n� STUN-servern, avaktiverar STUN.\n \n" +
-                    "Antingen finns det en UDP-blockerande brandv�gg som\n" +
-                    "hindrar SIPcon1 att n� Internet, eller s� �r STUN-\n" +
-                    "serverinst�llningen felaktig.\n \n" +
-                    "Var god kontrollera STUN-serverinst�llningarna och f�rs�k igen.");
+                    "Kan inte n STUN-servern, avaktiverar STUN.\n \n" +
+                    "Antingen finns det en UDP-blockerande brandvgg som\n" +
+                    "hindrar SIPcon1 att n Internet, eller s r STUN-\n" +
+                    "serverinstllningen felaktig.\n \n" +
+                    "Var god kontrollera STUN-serverinstllningarna och frsk igen.");
 
         setProperty("se.omnitor.tipcon1.AppController.STUN_SERVER_NOT_FOUND",
                     "Kan inte hitta STUN server, avaktiverar STUN.\n \n" +
-                    "Var god skriv in the STUN server in SIP-inst�llningarna och f�rs�k igen.");
+                    "Var god skriv in the STUN server in SIP-instllningarna och frsk igen.");
 
         setProperty("se.omnitor.tipcon1.AppController.UDP_BLOCKING_FW_FOUND",
-                    "Det finns en UDP-blockerande brandv�gg i n�tverket som inte till�ter\n" +
-                    "SIPcon1 att n� Internet! Du kommer kanske inte att kunna ringa eller\n" +
+                    "Det finns en UDP-blockerande brandvgg i ntverket som inte tillter\n" +
+                    "SIPcon1 att n Internet! Du kommer kanske inte att kunna ringa eller\n" +
                     " ta emot samtal.\n \n" +
-                    "Var god aktivera SIP-st�d i brandv�ggen, eller till�t utg�ende UDP-trafik.");
+                    "Var god aktivera SIP-std i brandvggen, eller tillt utgende UDP-trafik.");
 
         setProperty("se.omnitor.tipcon1.AppController.SYMMETRIC_FW_FOUND",
-                    "En symmetrisk NAT eller brandv�gg har detekterats,\n" +
+                    "En symmetrisk NAT eller brandvgg har detekterats,\n" +
                     "du kommer kanske inte att kunna ringa eller ta emot samtal.\n \n" +
-                    "Byt brandv�gg eller anv�nd annan internet-anslutning.");
+                    "Byt brandvgg eller anvnd annan internet-anslutning.");
 
         setProperty("se.omnitor.tipcon1.AppController.SDP_PARSE_ERROR",
-                    "Felaktig data fr�n motpart, kan ej koppla upp samtalet!");
+                    "Felaktig data frn motpart, kan ej koppla upp samtalet!");
 
-        setProperty("se.omnitor.tipcon1.AppController.DETECT", "Detekterar n�tverksinst�llningar");
+        setProperty("se.omnitor.tipcon1.AppController.DETECT", "Detekterar ntverksinstllningar");
 
         setProperty("se.omnitor.tipcon1.AppController.NOT_ACCEPTABLE_HERE",
 					"Kan inte hitta gemensamma codecs med din samtalspartner,\nsamtalet kan inte kopplas upp.");
 
         // Added by Luan, 24 Maj 2007
-        setProperty("se.omnitor.protocol.t140.SEND_TEXT", "S�nd text");
+        setProperty("se.omnitor.protocol.t140.SEND_TEXT", "Snd text");
 
         setProperty("se.omnitor.protocol.t140.RECEIVE_TEXT", "Mottagen text");
 
@@ -338,28 +338,28 @@ public class Swedish extends English {
 		    "Avbryt");
 
         setProperty("se.omnitor.tipcon1.gui.t140.LOGWINDOW",
-                    "Logg f�nster");
+                    "Logg fnster");
 
         setProperty("se.omnitor.tipcon1.gui.t140.RECEIVEWINDOW",
                     "Mottagen text");
 
         setProperty("se.omnitor.tipcon1.gui.t140.SENDWINDOW",
-                    "S�nd text");
+                    "Snd text");
 
 	setProperty("se.omnitor.tipcon1.gui.AddressPanel.SELECT_ROW_DEL",
-		    "V�lj f�rst en rad som skall tas bort.");
+		    "Vlj frst en rad som skall tas bort.");
 
 	setProperty("se.omnitor.tipcon1.gui.AddressPanel.SELECT_ROW_EDIT",
-		    "V�lj f�rst en rad som skall �ndras.");
+		    "Vlj frst en rad som skall ndras.");
 
 	setProperty("se.omnitor.tipcon1.gui.AddressPanel.DELETE",
 		    "Ta bort");
 
 	setProperty("se.omnitor.tipcon1.gui.AddressPanel.EDIT",
-		    "�ndra");
+		    "ndra");
 
 	setProperty("se.omnitor.tipcon1.gui.AddressPanel.DEL_CONFIRM",
-		    "�r du s�ker p� att du vill ta bort");
+		    "r du sker p att du vill ta bort");
 
 	setProperty("se.omnitor.tipcon1.gui.AddressPanel.NAME_HEADER",
 		    "Namn");
@@ -368,10 +368,10 @@ public class Swedish extends English {
 		    "SIP-adress");
 
 	setProperty("se.omnitor.tipcon1.gui.AddressPanel.NEW_ADDR",
-		    "L�gg till adress");
+		    "Lgg till adress");
 
 	setProperty("se.omnitor.tipcon1.gui.AddressPanel.EDIT_ADDR",
-		    "�ndra adress");
+		    "ndra adress");
 
 	setProperty("se.omnitor.tipcon1.gui.AddressPanel.OK_BUTTON",
 		    "OK");
@@ -380,10 +380,10 @@ public class Swedish extends English {
 		    "Avbryt");
 
 	setProperty("se.omnitor.tipcon1.gui.AddressPanel.NEW_BUTTON",
-		    "L�gg till");
+		    "Lgg till");
 
 	setProperty("se.omnitor.tipcon1.gui.AddressPanel.EDIT_BUTTON",
-		    "�ndra");
+		    "ndra");
 
 	setProperty("se.omnitor.tipcon1.gui.AddressPanel.DEL_BUTTON",
 		    "Ta bort");
@@ -399,10 +399,10 @@ public class Swedish extends English {
                     "Text");
 
         setProperty("se.omnitor.tipcon1.gui.ProgramWindow.MEDIA_STATUS_ON",
-                    "p�");
+                    "p");
 
         setProperty("se.omnitor.tipcon1.gui.ProgramWindow.MEDIA_STATUS_TRYING",
-                    "F�rs�ker ..");
+                    "Frsker ..");
 
 
         setProperty("se.omnitor.tipcon1.gui.ProgramWindow.MEDIA_STATUS_OUT_ONLY",
@@ -415,10 +415,10 @@ public class Swedish extends English {
                     "Misslyckades");
 
         setProperty("se.omnitor.tipcon1.gui.ProgramWindow.NET_INACTIVE",
-		    "N�tverk inaktivt");
+		    "Ntverk inaktivt");
 
 	setProperty("se.omnitor.tipcon1.gui.ProgramWindow.NET_ACTIVE",
-		    "N�tverk aktivt");
+		    "Ntverk aktivt");
 
 	setProperty("se.omnitor.tipcon1.gui.ProgramWindow.AUDIO_INACTIVE",
 		    "Ljud inaktivt");
@@ -433,76 +433,76 @@ public class Swedish extends English {
 		    "Text inaktivt");
 
 	setProperty("se.omnitor.tipcon1.gui.ProgramWindow.USER_INACTIVE",
-		    "Anv�ndare inaktiv");
+		    "Anvndare inaktiv");
 
 	setProperty("se.omnitor.tipcon1.gui.ProgramWindow.USER_ACTIVE",
-		    "Anv�ndare aktiv");
+		    "Anvndare aktiv");
 
 	setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.DIGITS_ONLY",
-		    "Portnumret f�r bara inneh�lla siffror.");
+		    "Portnumret fr bara innehlla siffror.");
 
 	setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.RESTORE_DEFAULT_OPTION",
-    			"Alla dina nuvarande inst�llningar byts mot\nstandardinst�llningar. �r du s�ker?");
+    			"Alla dina nuvarande instllningar byts mot\nstandardinstllningar. r du sker?");
 	
 	setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.RESTORE_DEFAULT",
-    			"Standardinst�llningar");
+    			"Standardinstllningar");
 	
 	setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.PORT_IN_RANGE",
-		    "Portnumret m�ste vara inom intervallet 1-65535.");
+		    "Portnumret mste vara inom intervallet 1-65535.");
 
 	setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.PORT_CHANGE",
-		    "Byter port, v�nta ..");
+		    "Byter port, vnta ..");
 
 	setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.INVALID_ADDR",
 		    "Du har skrivit in en ogiltig SIP-adress!\n\n" +
 		    "Syntax:\n" +
-		    "anv�ndare@dom�n.com  eller\n" +
-		    "anv�ndare@dom�n.com:port");
+		    "anvndare@domn.com  eller\n" +
+		    "anvndare@domn.com:port");
 
 	setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.APPLYING",
-		    "Applicerar inst�llningar ..");
+		    "Applicerar instllningar ..");
 
 	setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.NETWORK",
-		    "N�tverk");
+		    "Ntverk");
 
 	setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.SIP_PORT",
 		    "SIP-port:");
 
 	setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.DIAL_DOMAIN",
-		    "Samtalsdom�n:");
+		    "Samtalsdomn:");
 
         setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.OUTBOUND_PROXY",
-		    "Utg�ende proxy:");
+		    "Utgende proxy:");
         
     setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.NETWORK_INTERFACE",
-	    		"N�tverkskort:");
+	    		"Ntverkskort:");
         
 	setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.NET_INTERFACE_AUTO",
 	    		"Automatiskt");
 	
 	setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.USER",
-		    "Anv�ndare");
+		    "Anvndare");
 
 	setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.FULL_NAME",
-		    "Fullst�ndigt namn:");
+		    "Fullstndigt namn:");
 
 	setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.ERROR_FULL_NAME",
-    "Fullst�ndigt namn f�r endast inneh�lla bokst�verna A-Z och 0-9.");
+    "Fullstndigt namn fr endast innehlla bokstverna A-Z och 0-9.");
 
         setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.UNKNOWN_USER",
 		    "Okand anvandare");
 
 	setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.SIP_ADDRESS",
-		    "Prim�r SIP-adress:");
+		    "Primr SIP-adress:");
 
 	setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.REG_ADDRESS",
 		    "Registrar-adress:");
 
 	setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.USERNAME",
-		    "Anv�ndarnamn:");
+		    "Anvndarnamn:");
 
 	setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.PASSWORD",
-		    "L�senord:");
+		    "Lsenord:");
 
 	setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.OK_BUTTON",
 		    "OK");
@@ -511,22 +511,22 @@ public class Swedish extends English {
 		    "Avbryt");
 
 	setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.DEFAULT_BUTTON",
-	" Standardinst�llningar");
+	" Standardinstllningar");
 	
 	setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.TITLE",
-		    "SIP-inst�llningar");
+		    "SIP-instllningar");
 
         setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.STUN",
                     "STUN");
 
         setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.DISABLED_STUN",
-                    "St�ng av STUN-funktionalitet");
+                    "Stng av STUN-funktionalitet");
 
         setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.AUTO_STUN",
                     "Automatisk STUN (rekommenderat)");
 
         setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.FORCED_STUN",
-                    "P�tvinga anv�ndning av STUN");
+                    "Ptvinga anvndning av STUN");
 
         setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.STUN_SERVER_ADDRESS",
                     "Adress till STUN-server:");
@@ -535,48 +535,48 @@ public class Swedish extends English {
                     "STUN-status");
 
         setProperty("se.omnitor.tipcon1.gui.DetectDevicesThread.DETECTING",
-                    "Identifierar, det kan ta en stund. Var god v�nta ...");
+                    "Identifierar, det kan ta en stund. Var god vnta ...");
 
         setProperty("se.omnitor.tipcon1.gui.DetectDevicesThread.AUDIO_SETUP_CHANGED",
-            "Ljud inst�llningar har �ndrats!");
+            "Ljud instllningar har ndrats!");
 
 	setProperty("se.omnitor.tipcon1.gui.DetectDevicesThread.VIDEO_SETUP_CHANGED",
-            "Video inst�llningar har �ndrats!");
+            "Video instllningar har ndrats!");
 
 	setProperty("se.omnitor.tipcon1.gui.DetectDevicesThread.AUDIO_AND_VIDEO_SETUP_CHANGED",
-            "Ljud och video inst�llningar har �ndrats!");
+            "Ljud och video instllningar har ndrats!");
 
 	setProperty("se.omnitor.tipcon1.gui.DetectDevicesThread.NO_NEW_DEVICES",
                     "Inga nya enheter har identifierats.");
 
         setProperty("se.omnitor.tipcon1.gui.DetectDevicesThread.DETECTION_COMPLETE",
-                   "Identifiering slutf�rd");
+                   "Identifiering slutfrd");
 
 	setProperty("se.omnitor.tipcon1.gui.AudioVideoSettingsDialog.SETTINGS",
-		    "-inst�llningar");
+		    "-instllningar");
 
         setProperty("se.omnitor.tipcon1.gui.AudioVideoSettingsDialog.BITRATE",
                    "Bittakt:");
 
 	setProperty("se.omnitor.tipcon1.gui.AudioVideoSettingsDialog." +
 		    "NO_DEVICES",
-		    "Det finns inga tillg�ngliga enheter");
+		    "Det finns inga tillgngliga enheter");
 
 	setProperty("se.omnitor.tipcon1.gui.AudioVideoSettingsDialog." +
 		    "NO_FORMATS",
-		    "Det finns inga tillg�ngliga format");
+		    "Det finns inga tillgngliga format");
 
 	setProperty("se.omnitor.tipcon1.gui.AudioVideoSettingsDialog." +
 		    "NO_CODECS",
-		    "Det finns inga tillg�ngliga codecs");
+		    "Det finns inga tillgngliga codecs");
 
 	setProperty("se.omnitor.tipcon1.gui.AudioVideoSettingsDialog." +
 		    "DIGITS_ONLY",
-		    "Portnumret f�r endast best� av siffror.");
+		    "Portnumret fr endast best av siffror.");
 
 	setProperty("se.omnitor.tipcon1.gui.AudioVideoSettingsDialog." +
 		    "PORT_RANGE",
-		    "Portnumret m�ste vara inom intervallet 1-65535.");
+		    "Portnumret mste vara inom intervallet 1-65535.");
 
 	setProperty("se.omnitor.tipcon1.gui.AudioVideoSettingsDialog." +
 		    "CODECS_TO_USE",
@@ -598,18 +598,18 @@ public class Swedish extends English {
 		    "format:");
 
 	setProperty("se.omnitor.tipcon1.gui.TextSettingsDialog.TEXT_SETTINGS",
-		    "Inst�llningar f�r texttransport");
+		    "Instllningar fr texttransport");
 
 	setProperty("se.omnitor.tipcon1.gui.AlertSettingsDialog.ALERT_SETTINGS",
-		    "Inst�llningar f�r varseblivning");
+		    "Instllningar fr varseblivning");
 	setProperty("se.omnitor.tipcon1.gui.AlertSettingsDialog.ALERT_ENABLE",
 		    "Aktivera varseblivning");
 
         setProperty("se.omnitor.tipcon1.gui.LanguageDialog.LANGUAGE_SETTINGS",
-                    "Spr�k inst�llning");
+                    "Sprk instllning");
 
 	setProperty("se.omnitor.tipcon1.gui.TextSettingsDialog.PORT_DIGITS",
-		    "Antalet tecken per sekund m�ste best� av siffror.");
+		    "Antalet tecken per sekund mste best av siffror.");
 
         setProperty("se.omnitor.tipcon1.gui.TextSettingsDialog.REAL_TIME",
             "Realtid");
@@ -624,25 +624,25 @@ public class Swedish extends English {
 					"Aktivera timer");
 
     setProperty("se.omnitor.tipcon1.gui.TextSettingsDialog.NOT_NEGATIVE",
-		    "Antalet tecken per sekund f�r inte vara negativt.");
+		    "Antalet tecken per sekund fr inte vara negativt.");
 
 	setProperty("se.omnitor.tipcon1.gui.TextSettingsDialog.CPS_DIGITS",
-		    "Portnumret m�ste best� av siffror.");
+		    "Portnumret mste best av siffror.");
 
 	setProperty("se.omnitor.tipcon1.gui.TextSettingsDialog.PORT_RANGE",
-		    "Portnumret m�ste vara inom intervallet 1-65535.");
+		    "Portnumret mste vara inom intervallet 1-65535.");
 
 	setProperty("se.omnitor.tipcon1.gui.TextSettingsDialog.BT_DIGITS",
-		    "Buffringstiden m�ste best� av siffror.");
+		    "Buffringstiden mste best av siffror.");
 
 	setProperty("se.omnitor.tipcon1.gui.TextSettingsDialog.BT_NEGATIVE",
-		    "Buffringstiden f�r inte vara negativ.");
+		    "Buffringstiden fr inte vara negativ.");
 
 	setProperty("se.omnitor.tipcon1.gui.TextSettingsDialog.RG_DIGITS",
-		    "Antalet redundanta generationer m�ste best� av siffror.");
+		    "Antalet redundanta generationer mste best av siffror.");
 
 	setProperty("se.omnitor.tipcon1.gui.TextSettingsDialog.RG_NEGATIVE",
-		    "Antalet redundanta generationer f�r inte vara negativt.");
+		    "Antalet redundanta generationer fr inte vara negativt.");
 
 	setProperty("se.omnitor.tipcon1.gui.TextSettingsDialog.RTP_PORT",
 		    "RTP-port:");
@@ -663,7 +663,7 @@ public class Swedish extends English {
 		    "Avbryt");
 
 	setProperty("se.omnitor.tipcon1.gui.TextSettingsDialog.DEFAULT",
-	"Standardinst�llningar");
+	"Standardinstllningar");
 	
 	setProperty("se.omnitor.tipcon1.gui.SipSettingsDialog.REGS",
 		    "Registreringar");
@@ -675,16 +675,16 @@ public class Swedish extends English {
 		    "Registrator");
 
 	setProperty("se.omnitor.tipcon1.gui.SipRegistrationPanel.USER_NAME",
-		    "Anv�ndarnamn");
+		    "Anvndarnamn");
 
 	setProperty("se.omnitor.tipcon1.gui.SipRegistrationPanel.PASSWORD",
-		    "L�senord");
+		    "Lsenord");
 
 	setProperty("se.omnitor.tipcon1.gui.SipRegistrationPanel.NEW_REG",
 		    "Ny registrering");
 
 	setProperty("se.omnitor.tipcon1.gui.SipRegistrationPanel.EDIT_REG",
-		    "�ndra registrering");
+		    "ndra registrering");
 
 	setProperty("se.omnitor.tipcon1.gui.FundingCredits.HEADER",
 		    "Funding for the development of this reference design Voice+Text IP Phone\nwas provided by the following sponsors");
@@ -696,52 +696,52 @@ public class Swedish extends English {
 		    "Registration info");
 
 	setProperty("se.omnitor.tipcon1.gui.Register.INFO",
-                    "F�r en fullt fungerande SIPcon1 beh�ver du en SIP-adress.\n"+
-                    "SIP-adressen ser ut som en e-postadress och ger dig m�jlighet\n"+
-                    "att n� dina v�nner oavsett var de befinner sig.\n\n"+
+                    "Fr en fullt fungerande SIPcon1 behver du en SIP-adress.\n"+
+                    "SIP-adressen ser ut som en e-postadress och ger dig mjlighet\n"+
+                    "att n dina vnner oavsett var de befinner sig.\n\n"+
                     "Om texten \"Inte registrerad hos en SIP-server\"\n"+
-                    "visas i det nedre h�gra h�rnet, �r SIPcon1 inte konfigurerad\n"+
-                    "f�r att anv�nda en SIP-adress.\n\n"+
-                    "M�nga f�retag tillhandah�ller SIP-adresser, men de flesta\n"+
-                    "tar ut en avgift f�r denna tj�nst.\n"+
-                    "Du kan testa en SIP-adress genom att registrera dig p�\n"+
-                    "dittnamn@trysip.ingate.com, med anv�ndarnamnet dittnamn\n"+
-                    "och utan l�senord.\n\n"+
-                    "L�s mer p� http://www.ingate.com/trysip.php\n\n"+
-                    "F�r mer information om hur du registrerar dig p� en SIP-server,\n"+
-                    "v�nligen se anv�ndarmanualen f�r SIPcon1.\n\n"+
-                    "F�r att beh�ndigt ringa och ta emot samtal �r det n�dv�ndingt\n"+
+                    "visas i det nedre hgra hrnet, r SIPcon1 inte konfigurerad\n"+
+                    "fr att anvnda en SIP-adress.\n\n"+
+                    "Mnga fretag tillhandahller SIP-adresser, men de flesta\n"+
+                    "tar ut en avgift fr denna tjnst.\n"+
+                    "Du kan testa en SIP-adress genom att registrera dig p\n"+
+                    "dittnamn@trysip.ingate.com, med anvndarnamnet dittnamn\n"+
+                    "och utan lsenord.\n\n"+
+                    "Ls mer p http://www.ingate.com/trysip.php\n\n"+
+                    "Fr mer information om hur du registrerar dig p en SIP-server,\n"+
+                    "vnligen se anvndarmanualen fr SIPcon1.\n\n"+
+                    "Fr att behndigt ringa och ta emot samtal r det ndvndingt\n"+
                     "att du registrerar din SIP-adress hos en SIP-server.\n"+
-                    "Det �r m�jligt att anv�nda SIPcon1 utan en SIP-adress.\n"+
-                    "- Du kan ringa till dina v�nner som har en SIP-adress och\n"+
-                    "  de kan ringa till dig om de k�nner till din IP-adress.\n\n"+
-                    "* Att ringa och ta ta emot samtal kommer inte att vara m�jligt\n"+
-                    "  om SIPcon1 �r bakom en brandv�gg eller annan adress-\n"+
-                    "  �vers�ttning som �r symmetrisk.");
+                    "Det r mjligt att anvnda SIPcon1 utan en SIP-adress.\n"+
+                    "- Du kan ringa till dina vnner som har en SIP-adress och\n"+
+                    "  de kan ringa till dig om de knner till din IP-adress.\n\n"+
+                    "* Att ringa och ta ta emot samtal kommer inte att vara mjligt\n"+
+                    "  om SIPcon1 r bakom en brandvgg eller annan adress-\n"+
+                    "  versttning som r symmetrisk.");
 
         setProperty("se.omnitor.tipcon1.gui.Register.INFO_TIPCON1",
-                    "F�r en fullt fungerande Tipcon1 beh�ver du en SIP-adress.\n"+
-                    "SIP-adressen ser ut som en e-postadress och ger dig m�jlighet\n"+
-                    "att n� dina v�nner oavsett var de befinner sig.\n\n"+
+                    "Fr en fullt fungerande Tipcon1 behver du en SIP-adress.\n"+
+                    "SIP-adressen ser ut som en e-postadress och ger dig mjlighet\n"+
+                    "att n dina vnner oavsett var de befinner sig.\n\n"+
                     "Om texten \"Inte registrerad hos en SIP-server\"\n"+
-                    "visas i det nedre h�gra h�rnet, �r Tipcon1 inte konfigurerad\n"+
-                    "f�r att anv�nda en SIP-adress.\n\n"+
-                    "M�nga f�retag tillhandah�ller SIP-adresser, men de flesta\n"+
-                    "tar ut en avgift f�r denna tj�nst.\n"+
-                    "Du kan testa en SIP-adress genom att registrera dig p�\n"+
-                    "dittnamn@trysip.ingate.com, med anv�ndarnamnet dittnamn\n"+
-                    "och utan l�senord.\n\n"+
-                    "L�s mer p� http://www.ingate.com/trysip.php\n\n"+
-                    "F�r mer information om hur du registrerar dig p� en SIP-server,\n"+
-                    "v�nligen se anv�ndarmanualen f�r Tipcon1.\n\n"+
-                    "F�r att beh�ndigt ringa och ta emot samtal �r det n�dv�ndingt\n"+
+                    "visas i det nedre hgra hrnet, r Tipcon1 inte konfigurerad\n"+
+                    "fr att anvnda en SIP-adress.\n\n"+
+                    "Mnga fretag tillhandahller SIP-adresser, men de flesta\n"+
+                    "tar ut en avgift fr denna tjnst.\n"+
+                    "Du kan testa en SIP-adress genom att registrera dig p\n"+
+                    "dittnamn@trysip.ingate.com, med anvndarnamnet dittnamn\n"+
+                    "och utan lsenord.\n\n"+
+                    "Ls mer p http://www.ingate.com/trysip.php\n\n"+
+                    "Fr mer information om hur du registrerar dig p en SIP-server,\n"+
+                    "vnligen se anvndarmanualen fr Tipcon1.\n\n"+
+                    "Fr att behndigt ringa och ta emot samtal r det ndvndingt\n"+
                     "att du registrerar din SIP-adress hos en SIP-server.\n"+
-                    "Det �r m�jligt att anv�nda Tipcon1 utan en SIP-adress.\n"+
-                    "- Du kan ringa till dina v�nner som har en SIP-adress och\n"+
-                    "  de kan ringa till dig om de k�nner till din IP-adress.\n\n"+
-                    "* Att ringa och ta ta emot samtal kommer inte att vara m�jligt\n"+
-                    "  om Tipcon1 �r bakom en brandv�gg eller annan adress-\n"+
-                    "  �vers�ttning som �r symmetrisk.");
+                    "Det r mjligt att anvnda Tipcon1 utan en SIP-adress.\n"+
+                    "- Du kan ringa till dina vnner som har en SIP-adress och\n"+
+                    "  de kan ringa till dig om de knner till din IP-adress.\n\n"+
+                    "* Att ringa och ta ta emot samtal kommer inte att vara mjligt\n"+
+                    "  om Tipcon1 r bakom en brandvgg eller annan adress-\n"+
+                    "  versttning som r symmetrisk.");
 
 
 
@@ -752,13 +752,13 @@ public class Swedish extends English {
 
         setProperty("se.omnitor.tipcon1.ProgramWindow.CALL", "Ring upp");
 
-	setProperty("se.omnitor.tipcon1.ProgramWindow.HANGUP", "L�gg p�");
+	setProperty("se.omnitor.tipcon1.ProgramWindow.HANGUP", "Lgg p");
 
-        setProperty("se.omnitor.tipcon1.ProgramWindow.EMPTY", "T�m textf�nster");
+        setProperty("se.omnitor.tipcon1.ProgramWindow.EMPTY", "Tm textfnster");
 
 	setProperty("se.omnitor.tipcon1.ProgramWindow.SILENT", "Tyst");
 
-        setProperty("se.omnitor.tipcon1.ProgramWindow.MUTE", "D�mpa");
+        setProperty("se.omnitor.tipcon1.ProgramWindow.MUTE", "Dmpa");
 
         setProperty("se.omnitor.tipcon1.ProgramWindow.CONVERSATION_NONE",
                     " Konversation med: Ingen");
@@ -779,7 +779,7 @@ public class Swedish extends English {
 
         setProperty("se.omnitor.tipcon1.ProgramWindow.NO_LOCAL_VIDEO", "Ingen lokal video");
 
-        setProperty("se.omnitor.tipcon1.ProgramWindow.NO_REMOTE_VIDEO", "Ingen fj�rran video");
+        setProperty("se.omnitor.tipcon1.ProgramWindow.NO_REMOTE_VIDEO", "Ingen fjrran video");
 
 	setProperty("se.omnitor.tipcon1.ProgramWindow.CALL_CONTROL", "Samtalskontroll");
 
@@ -787,7 +787,7 @@ public class Swedish extends English {
 
         setProperty("se.omnitor.tipcon1.ProgramWindow.AUDIO_CONTROL", "Ljudkontroll");
 
-	setProperty("se.omnitor.tipcon1.ProgramWindow.SETTINGS", "Inst�llningar");
+	setProperty("se.omnitor.tipcon1.ProgramWindow.SETTINGS", "Instllningar");
     }
 
 }

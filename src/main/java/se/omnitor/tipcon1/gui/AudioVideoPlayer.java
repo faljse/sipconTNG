@@ -311,7 +311,7 @@ public class AudioVideoPlayer implements ActionListener,
 
 	muteState = gain.getMute();
 	if (muteState) {
-	    mute = new JButton("�nmute");
+	    mute = new JButton("nmute");
 	}
 	else {
 	    mute = new JButton(" Mute ");

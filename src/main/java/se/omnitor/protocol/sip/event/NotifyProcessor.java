@@ -228,7 +228,7 @@ public class NotifyProcessor extends Processor {
 	// Om Route-set r tom, remote target URI mste vara i Request-URI
 	// Om Route-set inte r tom och det frsta URIt i route-set innehller
 	//   inte lr-parameter, mste man stta remote target URI i Request-URI och
-	//   mste inkludera en routeheader field inneh�llandes alla route-set-
+	//   mste inkludera en routeheader field innehllandes alla route-set-
 	//   vrden i ordnin, inkl. alla parametrar. Sedan mste vi stta
 	//   remote target URI in i route header field som det sista vrdet.
 	// Max-Forwards: 70

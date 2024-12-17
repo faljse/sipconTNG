@@ -690,7 +690,7 @@ public class Session extends java.lang.Object
 	 * session with one or two active senders, the computed report
 	 * time would be roughly equal to the minimum report time so that
 	 * we don't unnecessarily slow down receiver reports.) The
-	 * receiver fraction must be 1 � the sender fraction.
+	 * receiver fraction must be 1  the sender fraction.
 	 */
 	final double RTCP_SENDER_BW_FRACTION = (double) 0.25;
 	final double RTCP_RCVR_BW_FRACTION = (1-RTCP_SENDER_BW_FRACTION);
@@ -698,7 +698,7 @@ public class Session extends java.lang.Object
 	double rtcp_min_time = RTCP_MIN_TIME;
 	double n; /* no. of members for computation */
 	/*
-	 * Very first call at application start�up uses half the min
+	 * Very first call at application startup uses half the min
 	 * delay for quicker notification while still allowing some time
 	 * before reporting for randomization and to learn about other
 	 * sources so the report interval will converge to the correct

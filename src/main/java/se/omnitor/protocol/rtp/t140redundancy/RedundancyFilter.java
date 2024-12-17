@@ -26,8 +26,8 @@ import java.util.Iterator;
 /**
  *  handles inserting and filtering of highlevel text redundancy data
  *
- *  @author Staffan Hellstr�m
- *  @autohr Erik Zetterstr�m
+ *  @author Staffan Hellstrm
+ *  @autohr Erik Zetterstrm
  */
 public class RedundancyFilter {
 

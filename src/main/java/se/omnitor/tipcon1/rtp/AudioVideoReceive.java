@@ -714,7 +714,7 @@ public class AudioVideoReceive
         /**
          * This listener handles changes on the slider.
          *
-         * @author Erik Zetterstr�m
+         * @author Erik Zetterstrm
          */
         class SliderListener implements ChangeListener {
 

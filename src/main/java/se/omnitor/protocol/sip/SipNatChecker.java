@@ -124,7 +124,7 @@ public class SipNatChecker implements SipControllerListener {
     }
 
     /**
-     * @todo Testa f�rst att regga, k�r sedan STUN och kolla om det finns n�gon contact-post som st�mmer med den externa IP som man har
+     * @todo Testa frst att regga, kr sedan STUN och kolla om det finns ngon contact-post som stmmer med den externa IP som man har
      * @param sipAddress String
      * @param registrarHost String
      * @param username String
