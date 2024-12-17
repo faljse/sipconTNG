@@ -64,9 +64,6 @@ import java.util.Locale;
 import java.util.Properties;
 import java.util.StringTokenizer;
 import java.util.Vector;
-import java.util.Iterator;
-
-import java.awt.Color;
 import java.awt.Font;
 
 import javax.media.CaptureDeviceInfo;
@@ -87,9 +84,6 @@ import javax.media.format.VideoFormat;
 import javax.media.protocol.ContentDescriptor;
 import javax.media.protocol.DataSource;
 import javax.media.protocol.SourceCloneable;
-
-import javax.naming.NameNotFoundException;
-import javax.naming.NamingException;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -140,10 +134,8 @@ import se.omnitor.protocol.stun.StunStackException;
 
 import javax.sdp.SdpException;
 
-// import LogClasses and Classes
 import java.util.logging.Level;
 import java.util.logging.Logger;
-//import net.sf.fmj.media.cdp.civil.CaptureDevicePlugger;
 import java.awt.Dimension;
 
 
@@ -1373,7 +1365,11 @@ public class AppController implements SipControllerListener {
                             oldThread.interrupt();
                         }
                 }
-                startSipSystem();
+                try {
+                    startSipSystem();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
             }
         };
         sipStarterThread.setName("SIP starter thread");
@@ -1406,14 +1402,18 @@ public class AppController implements SipControllerListener {
                 }
 
                 stopSipSystem();
-                startSipSystem();
+                try {
+                    startSipSystem();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
             }
         };
         sipStarterThread.setName("SIP restarter thread");
         sipStarterThread.start();
     }
 
-    private void startSipSystem() {
+    private void startSipSystem() throws SocketException, UnknownHostException {
 
         synchronized (sipStartStopMutex) {
             gui.setRegDetecting("Detecting SIP environment");
@@ -3245,7 +3245,11 @@ public class AppController implements SipControllerListener {
     		e.printStackTrace();
         }
 
-        startSipSystem();
+        try {
+            startSipSystem();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void setQueuedSipSystemRestart (boolean queuedRestart) {
@@ -3790,8 +3794,6 @@ public class AppController implements SipControllerListener {
             if ((AppConstants.PROGRAM_TYPE == AppConstants.TIPCON1) && autoVideoPlus != null) {
                 autoVideoPlus.newInstance();
             }
-        } catch (ThreadDeath td) {
-            throw td;
         } catch (Throwable t) {
         	logger.throwing(this.getClass().getName(), "detectDevices", t);
         }
@@ -3948,7 +3950,7 @@ public class AppController implements SipControllerListener {
     /**
     * Sets the current language set
     *
-    * @param The new language
+    * @param aLanguage The new language
     */
     public void setLanguage(Properties aLanguage) {
     	language = aLanguage;
@@ -4112,124 +4114,20 @@ public class AppController implements SipControllerListener {
      *
      * @return IP address of next network hop
      */
-    private String getNextNetworkHop() {
-
-        return "192.168.16.9"; //TODO
-//        // Find default gw
-//        String dgw = null;
-//        String sm = null;
-//
-//        RegistryKey key = new RegistryKey(RootKey.HKEY_LOCAL_MACHINE,
-//                                          "SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\Interfaces");
-//        if (key.hasSubkeys()) {
-//            Iterator sk = key.subkeys();
-//
-//            while (sk.hasNext() && dgw == null) {
-//                RegistryKey subkey = (RegistryKey) sk.next();
-//
-//                if (subkey.hasValues()) {
-//                    Iterator v = subkey.values();
-//
-//                    boolean enableDhcp = false;
-//                    String defaultGateway = null;
-//                    String ipAddress = null;
-//                    String dhcpDefaultGateway = null;
-//                    String dhcpIpAddress = null;
-//                    String dhcpSubnetMask = null;
-//                    String subnetMask = null;
-//                    while (v.hasNext()) {
-//                        RegistryValue value = (RegistryValue) v.next();
-//
-//                        if (value.getName().equalsIgnoreCase("EnableDHCP")) {
-//                            enableDhcp = value.getStringValue().trim().equals("1");
-//                        } else if (value.getName().equalsIgnoreCase("DefaultGateway")) {
-//                            defaultGateway = value.getStringValue().trim();
-//                        } else if (value.getName().equalsIgnoreCase("IPAddress")) {
-//                            ipAddress = value.getStringValue().trim();
-//                        } else if (value.getName().equalsIgnoreCase(
-//                                "DhcpDefaultGateway")) {
-//                            dhcpDefaultGateway = value.getStringValue().trim();
-//                        } else if (value.getName().equalsIgnoreCase("DhcpIPAddress")) {
-//                            dhcpIpAddress = value.getStringValue().trim();
-//                        } else if (value.getName().equalsIgnoreCase(
-//                                "DhcpSubnetMask")) {
-//                            dhcpSubnetMask = value.getStringValue().trim();
-//                        } else if (value.getName().equalsIgnoreCase("SubnetMask")) {
-//                            subnetMask = value.getStringValue().trim();
-//                        }
-//
-//
-//                    }
-//
-//                    if (!enableDhcp) {
-//                        if (ipAddress != null && ipAddress.equals(localIpAddress)) {
-//                            if (defaultGateway != null && !defaultGateway.equals("")) {
-//                                dgw = defaultGateway;
-//                            }
-//                            if (subnetMask != null && !subnetMask.equals("")) {
-//                                sm = subnetMask;
-//                            }
-//                        }
-//                    }
-//                    else {
-//                        if (dhcpIpAddress != null && dhcpIpAddress.equals(localIpAddress)) {
-//                            if (dhcpDefaultGateway != null && !dhcpDefaultGateway.equals("")) {
-//                                dgw = dhcpDefaultGateway;
-//                            }
-//                            if (dhcpSubnetMask != null && !dhcpSubnetMask.equals("")) {
-//                                sm = dhcpSubnetMask;
-//                            }
-//                        }
-//                    }
-//                }
-//
-//            }
-//        }
-//
-//        String retval = dgw;
-//
-//        String op = appSettings.getOutboundProxy();
-//        if (op != null && sm != null) {
-//            String[] opspl = op.split("\\.");
-//            String[] smspl = sm.split("\\.");
-//            String[] lhspl = localIpAddress.split("\\.");
-//
-//            if (opspl.length > 3 && smspl.length > 3) {
-//                try {
-//                    long opvalue = Integer.parseInt(opspl[3]) +
-//                                   (Integer.parseInt(opspl[2]) << 8) +
-//                                   (Integer.parseInt(opspl[1]) << 16) +
-//                                   (Integer.parseInt(opspl[0]) << 24);
-//
-//                    long smvalue = Integer.parseInt(smspl[3]) +
-//                                   (Integer.parseInt(smspl[2]) << 8) +
-//                                   (Integer.parseInt(smspl[1]) << 16) +
-//                                   (Integer.parseInt(smspl[0]) << 24);
-//
-//                    long lhvalue = Integer.parseInt(lhspl[3]) +
-//                                   (Integer.parseInt(lhspl[2]) << 8) +
-//                                   (Integer.parseInt(lhspl[1]) << 16) +
-//                                   (Integer.parseInt(lhspl[0]) << 24);
-//
-//                    if ((opvalue & smvalue) == (lhvalue & smvalue)) {
-//                        retval = op;
-//                    }
-//                }
-//                catch (NumberFormatException nfe) {
-//                    // Could not parse something, ignore it and continue.
-//                }
-//            }
-//        }
-//
-//        return retval;
+    private String getNextNetworkHop() throws SocketException, UnknownHostException {
+        try(DatagramSocket s=new DatagramSocket()) {
+            s.connect(InetAddress.getByAddress(new byte[]{1,1,1,1}), 0);
+            var adr=NetworkInterface.getByInetAddress(s.getLocalAddress()).getInetAddresses().nextElement();
+            return adr.getHostAddress();
+        }
     }
 
 
-    private boolean detectSipCompatibleNat() {
+    private boolean detectSipCompatibleNat() throws SocketException, UnknownHostException {
         boolean foundSipCompatibleNat = false;
 
         // Get the default gw setting
-        String dgw = getNextNetworkHop();
+        String dgw = getNextNetworkHop(); //untested
 
         // Send OPTIONS to default gw
         DatagramSocket socket = null;
