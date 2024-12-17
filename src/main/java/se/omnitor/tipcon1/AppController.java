@@ -4114,7 +4114,7 @@ public class AppController implements SipControllerListener {
      */
     private String getNextNetworkHop() {
 
-        return "127.0.0.1";
+        return "127.0.0.1"; //TODO
 //        // Find default gw
 //        String dgw = null;
 //        String sm = null;
