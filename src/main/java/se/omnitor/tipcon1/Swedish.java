@@ -49,7 +49,7 @@ public class Swedish extends English {
     public Swedish() {
 
         setProperty("se.omnitor.tipcon1.gui.fontdialog.FONT_SETTINGS",
-                    "TextinstOllningar"); //TODO: wtf
+                    "Textinstllningar");
 
         setProperty("se.omnitor.tipcon1.gui.fontdialog.FONT",
                     "Typsnitt");
