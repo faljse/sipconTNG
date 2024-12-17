@@ -33,12 +33,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.Properties;
-
-import org.apache.log4j.FileAppender;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-import org.apache.log4j.SimpleLayout;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 /**
  * A wrapper around log4j that is used for logging debug and errors. You can replace this 
  * file if you want to change the way in which messages are logged.
@@ -53,9 +49,7 @@ import org.apache.log4j.SimpleLayout;
 
 public class LogWriter {
 
-	
-	private Logger logger;
-
+	Logger logger = LoggerFactory.getLogger(LogWriter.class);
 	private String stackName;
 
 	/**
@@ -127,22 +121,18 @@ public class LogWriter {
 		return lineCount;
 	}
 
-	private Logger getLogger() {
-		return logger;
-	}
-
 	public void logException(Throwable ex) {
 
 		if (needsLogging) {
 
-			this.getLogger().error(ex.getMessage(), ex);
+			logger.error(ex.getMessage(), ex);
 		}
 	}
 
 	public void logThrowable(Throwable throwable) {
 		if (needsLogging) {
 
-			getLogger().error(throwable);
+			logger.error("wwi", throwable);
 		}
 	}
 
@@ -203,7 +193,7 @@ public class LogWriter {
 		if (needsLogging) {
 			String newMessage = this.enhanceMessage(message);
 			countLines(newMessage);
-			getLogger().debug(newMessage);
+			logger.debug(newMessage);
 		}
 
 	}
@@ -229,11 +219,9 @@ public class LogWriter {
 	 *            error message to log.
 	 */
 	public void logFatalError(String message) {
-		Logger logger = this.getLogger();
 		String newMsg = this.enhanceMessage(message);
 		countLines(newMsg);
-		logger.fatal(newMsg);
-
+		logger.error(newMsg);
 	}
 
 	/**
@@ -244,11 +232,9 @@ public class LogWriter {
 	 * 
 	 */
 	public void logError(String message) {
-		Logger logger = this.getLogger();
 		String newMsg = this.enhanceMessage(message);
 		countLines(newMsg);
 		logger.error(newMsg);
-
 	}
 
 	/**
@@ -269,69 +255,6 @@ public class LogWriter {
 		
 		if ( this.logFileName == null && logLevel != null ) 
 			this.logFileName = stackName + "debuglog.txt";
-		
-		logger = Logger.getLogger(category);
-		if (logLevel != null) {
-			try {
-				int ll = 0;
-				if (logLevel.equals("DEBUG")) {
-					ll = TRACE_DEBUG;
-				} else if (logLevel.equals("TRACE")) {
-					ll = TRACE_MESSAGES;
-				} else if (logLevel.equals("ERROR")) {
-					ll = TRACE_EXCEPTION;
-				} else if (logLevel.equals("NONE")) {
-					ll = TRACE_NONE;
-				} else {
-					ll = Integer.parseInt(logLevel);
-				}
-
-				this.setTraceLevel(ll);
-				this.needsLogging = true;
-				if (traceLevel == TRACE_DEBUG) {
-					logger.setLevel(Level.DEBUG);
-				} else if (traceLevel == TRACE_MESSAGES) {
-					logger.setLevel(Level.INFO);
-				} else if (traceLevel == TRACE_EXCEPTION) {
-					logger.setLevel(Level.ERROR);
-				} else if (traceLevel == TRACE_NONE) {
-					logger.setLevel(Level.OFF);
-					this.needsLogging = false;
-				}
-
-				FileAppender fa = null;
-				if (this.needsLogging) {
-					try {
-						fa = new FileAppender(new SimpleLayout(),this.logFileName);
-					} catch (FileNotFoundException fnf) { 
-				
-						// Likely due to some directoy not existing. Create them
-						File logfile = new File( this.logFileName );
-						logfile.getParentFile().mkdirs();
-						logfile.delete();
-						
-						try {
-							fa = new FileAppender(new SimpleLayout(),this.logFileName);						
-						} catch (IOException ioe) {
-							ioe.printStackTrace();	// give up
-						}
-					} catch (IOException ex) {
-						ex.printStackTrace();
-					}
-					if (fa!=null) logger.addAppender(fa);
-				}
-				
-			} catch (NumberFormatException ex) {
-				ex.printStackTrace();
-				System.out.println("LogWriter: Bad integer " + logLevel);
-				System.out.println("logging dislabled ");
-				needsLogging = false;
-			}
-		} else {
-			this.needsLogging = false;
-
-		}
-
 	}
 
 	/**
@@ -347,13 +270,12 @@ public class LogWriter {
 	}
 
 	public void logError(String message, Exception ex) {
-		Logger logger = this.getLogger();
 		logger.error(message, ex);
 
 	}
 
 	public void logWarning(String string) {
-		getLogger().warn(string);
+		logger.warn(string);
 		
 	}
 	

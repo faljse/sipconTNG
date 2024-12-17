@@ -46,7 +46,6 @@ import java.net.SocketException;
 import gov.nist.core.*;
 import java.net.*;
 import java.util.*;
-import org.apache.log4j.*;
 
 
 /**
