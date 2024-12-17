@@ -54,9 +54,8 @@ public class SipRouter implements Router {
 
 	this.sipStack = sipStack;
 	if (defaultRoute != null) {
-	    //this.defaultRoute = new HopImpl(defaultRoute);  //TODO
-	}
-    }
+	    this.defaultRoute = new HopImpl(defaultRoute);
+	}}
 
     /**
      * Constructor given SIPStack as an argument (this is only for the
