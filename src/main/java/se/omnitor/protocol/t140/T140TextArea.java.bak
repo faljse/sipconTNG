@@ -1,0 +1,723 @@
+/*
+ * T.140 Presentation Library
+ *
+ * Copyright (C) 2004 Board of Regents of the University of Wisconsin System
+ * (Univ. of Wisconsin-Madison, Trace R&D Center)
+ * Copyright (C) 2004 Omnitor AB
+ *
+ * This software was developed with support from the National Institute on
+ * Disability and Rehabilitation Research, US Dept of Education under Grant
+ * # H133E990006 and H133E040014
+ *
+ * This library is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation; either version 2.1 of the License, or (at
+ * your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public
+ * License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this library; if not, write to the Free Software Foundation,
+ * Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ *
+ * Please send a copy of any improved versions of the library to:
+ * Gunnar Hellstrom, Omnitor AB, Renathvagen 2, SE 121 37 Johanneshov, SWEDEN
+ * Gregg Vanderheiden, Trace Center, U of Wisconsin, Madison, Wi 53706
+ *
+ */
+package se.omnitor.protocol.t140;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.SystemColor;
+import java.awt.TextArea;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.InputEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JViewport;
+import java.util.logging.Logger;
+import java.util.Set;
+import java.util.HashSet;
+
+/**
+ * This is a normal TextArea extended with functionality for adding/removing
+ * lines. This is to achieve T.140 level synchronization. <br>
+ * <br>
+ * The synchronization mechanism is partly here and partly in <i>T140GUI</i>
+ * class. <br>
+ *
+ * @author Erik Zetterstrom, Omnitor AB
+ * @author Andreas Piirimets, Omnitor AB
+ */
+public class T140TextArea extends JScrollPane implements KeyListener {
+
+    /**
+     * Last char typed in the area. Only set before erasing a char.
+     */
+    protected char lastChar;
+
+    /**
+     * Specifies whether this text area belongs to the local user or not.
+     */
+    private boolean isLocal;
+
+    /**
+     * Holds information about what text the user has written. Since extra
+     * newlines may have been written to the JTextArea by the synchronization
+     * functions, we must know what to remove when user presses backspace.
+     */
+    private StringBuffer writtenText;
+
+    /**
+     * The JTextArea that this JScrollPane contains.
+     */
+    protected JTextArea textArea=null;
+
+    private JViewport viewPort=null;
+    private int columns=0;
+    private Font font;
+    private String lostCharacter;
+    private Logger logger;
+
+    private Color activeBg;
+    private Color inactiveBg;
+    private boolean isActiveBg;
+
+    private boolean lastAppendedCharWasLostCharacter = false;
+
+
+    /**
+     * Initializes.
+     *
+     * @param rows    The width of this TextArea.
+     * @param columns The height of this TextArea.
+     * @param isLocal Defines whether the text area is filled with text written
+     * by the local user
+     */
+    public T140TextArea(int rows, int columns, boolean isLocal, int vertscrollbar) {
+        super(vertscrollbar, HORIZONTAL_SCROLLBAR_NEVER);
+	logger = Logger.getLogger("se.omnitor.protocol.t140");
+
+        this.columns = columns;
+	this.isLocal = isLocal;
+        textArea = new JTextArea(rows, columns);
+
+	//Handle TAB
+	textArea.addKeyListener(this);
+
+
+        viewPort = new JViewport();
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
+        //textArea.setSize(200,100);
+        //viewPort.setSize(200,100);
+
+        font = new Font("Arial Unicode MS",Font.PLAIN,12);
+	textArea.setFont(font);
+
+        viewPort.setView(textArea);
+        setViewport(viewPort);
+
+        getVerticalScrollBar().setUnitIncrement(textArea.
+                                                getFontMetrics(font).
+                                                getHeight());
+
+	writtenText = new StringBuffer();
+
+	// If font has lost char (0xFFFD), use it! Otherwise, use the textual
+	// representation ("<?>").
+	String str = "" + (char)0xFFFD;
+	if (font.canDisplayUpTo(str) == -1) {
+	    lostCharacter = str;
+	}
+	else {
+	    lostCharacter = "<?>";
+	}
+
+	activeBg = SystemColor.info;
+	inactiveBg = SystemColor.control;
+	isActiveBg = false;
+
+	textArea.setBackground(inactiveBg);
+
+
+	/*Set keys = textArea.getFocusTraversalKeys(java.awt.KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS);
+	//table.putClientProperty(ORIGINAL_FORWARD_FOCUS_KEYS, keys);
+	keys = new HashSet(keys);
+	keys.add(javax.swing.KeyStroke.getKeyStroke("TAB"));
+	textArea.setFocusTraversalKeys(java.awt.KeyboardFocusManager.FORWARD_TRAVERSAL_KEYS, keys);
+	keys = textArea.getFocusTraversalKeys(java.awt.KeyboardFocusManager.BACKWARD_TRAVERSAL_KEYS);
+	//table.putClientProperty(ORIGINAL_BACKWARD_FOCUS_KEYS, keys);
+	keys = new HashSet(keys);
+	keys.add(javax.swing.KeyStroke.getKeyStroke("shift TAB"));
+	textArea.setFocusTraversalKeys(java.awt.KeyboardFocusManager.BACKWARD_TRAVERSAL_KEYS, keys);*/
+
+    }
+
+    /**
+     * Sets the accessible description of this text area,
+     *
+     * @param desc The description.
+     */
+    public void setAccessibleDescription(String desc) {
+	textArea.getAccessibleContext().setAccessibleDescription(desc);
+    }
+
+	public Dimension getPreferredSize() {
+		Dimension d = super.getPreferredSize();
+		
+		int width = 20;
+		int height = 150;
+		if (d != null) {
+			width = (int)d.getWidth();
+		}
+		
+		return new Dimension(width, height);
+	}
+    /**
+     * Sets the focus of this text area.
+     */
+    public void setFocus() {
+	textArea.requestFocus();
+    }
+
+    public void keyPressed(KeyEvent e) {
+
+	if(e.getKeyCode() == KeyEvent.VK_TAB) {
+	    if(e.isShiftDown()) {
+		javax.swing.FocusManager.getCurrentManager().focusPreviousComponent();
+	    } else {
+		javax.swing.FocusManager.getCurrentManager().focusNextComponent();
+	    }
+	    e.consume();
+	}
+    }
+
+    public void keyReleased(KeyEvent e) {
+	if(e.getKeyCode() == KeyEvent.VK_TAB) {
+	    e.consume();
+	}
+    }
+
+    public void keyTyped(KeyEvent e) {
+	if(e.getKeyCode() == KeyEvent.VK_TAB) {
+	    e.consume();
+	}
+    }
+
+    /**
+     * Gets the font of the text area.
+     *
+     * @return The font used.
+     */
+    public Font getFont() {
+	if(textArea!=null) {
+	    return textArea.getFont();
+	}
+	return null;
+    }
+
+    /**
+     * Gets the foreground color used in the text area.
+     *
+     * @return The foreground color used.
+     */
+    public Color getForeground() {
+	if(textArea!=null) {
+	    return textArea.getForeground();
+	}
+	return null;
+    }
+
+    /**
+     * Gets the background color used in this text area.
+     *
+     * @return The background color used.
+     */
+    public Color getBackground() {
+	return activeBg;
+    }
+    
+    /**
+     * Sets the font of this text area.
+     *
+     * @param f The font to use.
+     */
+    public void setFont(Font f) {
+	if(textArea!=null) {
+	    textArea.setFont(f);
+	}
+    }
+
+    /**
+     * Sets the foreground color of this text area.
+     *
+     * @param c The color to use.
+     */
+    public void setForeground(Color c) {
+	if(textArea!=null) {
+	    textArea.setForeground(c);
+	}
+    }
+
+    /**
+     * Sets the background color of this text area.
+     *
+     * @param c The color to use.
+     */
+    public void setBackground(Color c) {
+	activeBg = c;
+
+	int r = (c.getRed() + 3*SystemColor.control.getRed()) / 4;
+	int g = (c.getGreen() + 3*SystemColor.control.getGreen()) / 4;
+	int b = (c.getBlue() + 3*SystemColor.control.getBlue()) / 4;
+	inactiveBg = new Color(r, g, b);
+
+	if(textArea!=null) {
+	    if (isActiveBg) {
+		textArea.setBackground(activeBg);
+	    }
+	    else {
+		textArea.setBackground(inactiveBg);
+	    }
+	}
+    }
+
+    /**
+     * Appends the "lost character" to the text area. This is a special
+     * character, which should be shown when there are missing data. This
+     * character may not be available in all fonts. If the character is
+     * unavailable, the following is appended instead: "<?>".
+     *
+     */
+    public void appendLostCharacter() {
+	textArea.append(lostCharacter);
+    }
+
+    /**
+     * Set the number of rows in the text area
+     *
+     * @param rows The number of rows to use
+     */
+    public void setRows(int rows) {
+	textArea.setRows(rows);
+    }
+
+    /**
+     * Set the number of columns in the text areas
+     *
+     * @param columns the number of columns
+     */
+    public void setColumns(int columns) {
+	textArea.setColumns(columns);
+	this.columns = columns;
+    }
+
+
+    /**
+     * Gets the number of columns of the text area.
+     *
+     * @return The number of columns.
+     */
+    public int getColumns() {
+	return textArea.getColumns();
+    }
+
+    /**
+     * Sets the position of the caret to the end of the text.
+     *
+     */
+    public void setEndCaretPosition() {
+	textArea.setCaretPosition(textArea.getText().length());
+    }
+
+    /**
+     * Sets if the textarea should be editable or not.
+     *
+     * @param state True for editable, false otherwise.
+     */
+    public void setEditable(boolean state) {
+	textArea.setEditable(state);
+    }
+
+    /**
+     * Returns a boolean indicating if this component is editable or not.
+     *
+     * @return The boolean value
+     */
+    public boolean isEditable() {
+	return textArea.isEditable();
+    }
+
+    /**
+     * Sets if the text area should have an inactive look or not.
+     *
+     * @param state True for active look, false for inactive look
+     */
+    public void setActiveLook(boolean state) {
+	if (state) {
+	    isActiveBg = true;
+	    textArea.setBackground(activeBg);
+	    if (isLocal) {
+		textArea.requestFocus();
+	    }
+	}
+	else {
+	    isActiveBg = false;
+	    textArea.setBackground(inactiveBg);
+	}
+    }
+
+    /**
+     * Set a KeyListener to the textarea.
+     *
+     * @param kl The KeyListener.
+     */
+    public void addKeyListener(KeyListener kl) {
+	textArea.addKeyListener(kl);
+    }
+
+    /**
+     * Fetches the text of the textarea.
+     *
+     * @return The text
+     */
+    public String getText() {
+	return textArea.getText();
+    }
+
+    /**
+     * Sets the text area to contain only this text.
+     *
+     * @param txt The text to set.
+     */
+    public void setText(String txt) {
+	textArea.setText(txt);
+        textArea.setCaretPosition(textArea.getText().length());
+    }
+
+    /**
+     * Appends text to the textarea.
+     *
+     * @param txt The text to append.
+     */
+    public void append(String txt) {
+
+	if ((int)txt.charAt(0) == 0xFFFD) {
+	    if (!lastAppendedCharWasLostCharacter ) {
+
+		textArea.append(lostCharacter);
+		lastAppendedCharWasLostCharacter = true;
+	    }
+	}
+	else {
+	    textArea.append(txt);
+	    lastAppendedCharWasLostCharacter = false;
+	}
+
+    }
+
+    public String getAllText() {
+	    String tmptext = writtenText.toString();
+	    writtenText.delete(0, writtenText.length());
+	    textArea.setText("");
+	    return tmptext;
+    }
+
+    public String getWText() {
+	    return writtenText.toString();
+    }
+
+    public void setWText(String s) {
+        writtenText = new StringBuffer(s);
+    }
+
+
+    public void setAllText(String txt) {
+        writtenText.delete(0, writtenText.length());
+        writtenText.append(txt);
+        textArea.setText(writtenText.toString());
+    }
+
+
+    /**
+     * Synchs this TextArea to a given row.
+     * Adds \n until this TextArea has reached the given row.
+     *
+     * @param rowNumber The row to sync to.
+     */
+    public void syncToRow(int rowNumber) {
+	int lastSentenceDelimiter =
+	    getLastSentenceDelimiter(textArea.getText());
+	int cpos = getCurrentPosition();
+	
+	//DEBUG
+	System.out.println("lastSentenceDelimiter = " + lastSentenceDelimiter);
+	System.out.println("cpos = " + cpos);
+	
+
+	while (cpos < rowNumber) {
+	    try {
+		// Append new lines at the end if the last written character
+		// is a new line
+		if (!writtenText.toString().equals("") &&
+			writtenText.charAt(writtenText.length()-1) == '\n') {
+
+		    textArea.append("\n");
+		}
+
+		//we have a sentence delimiter somewhere in the text
+		else if (lastSentenceDelimiter <
+			 textArea.getText().length()-1) {
+		    textArea.insert("\n",lastSentenceDelimiter + 1);
+		}
+		else {
+		    textArea.append("\n");
+		}
+		textArea.setCaretPosition(textArea.getText().length());
+	    }
+	    catch(Exception e) {
+		logger.throwing(this.getClass().getName(), "syncToRow", e);
+	    }
+	    cpos=getCurrentPosition();
+	}//end while
+    }//end method syncToRow
+
+
+    /**
+     * Gets the line number of the caret position in the TextArea.
+     *
+     * @return The current line number.
+     */
+    public int getCurrentPosition() {
+	int position = 0;
+	char[] txt = textArea.getText().toCharArray();
+	int dot = textArea.getText().length();
+	int rowLength = 0;
+	int numberOfRows=0;
+
+	for (int i=0;i<txt.length;i++) {
+	    //complete row
+	    if (txt[i]=='\n') {
+		if (rowLength>columns) {
+		    numberOfRows+=(int)(rowLength/columns)+1;
+		}
+		else {
+		    numberOfRows++;
+		}
+		rowLength=0;;
+	    } else {
+		rowLength++;
+	    }
+	}
+	return numberOfRows;
+    }//end method getCurrentPosition
+
+
+    /**
+     * Erases all \n at the end of the text back
+     * to the last sentence delimiter.
+     *
+     */
+    public void eraseAutoNewlines() {
+	int n = 0;
+	boolean endsWithReturn = textArea.getText().endsWith("\n");
+	boolean returnRemoved = endsWithReturn;
+
+	// If there is no characters left typed by the user, move the caret
+	// to the top of the text area. Trust the sync functionality to move
+	// the caret to the right position, still it's good to move the caret
+	// to the top here in case top is the right position. Else, it will
+	// never get there.
+	if (writtenText.length() == 0) {
+	    textArea.setText("");
+	    return;
+	}
+
+        // If the last character typed was not a new line character, remove
+	// the last character from the GUI also.
+	if (endsWithReturn) {
+	    //removeLastGuiCharacter();
+	}
+
+	// If there is only one character and it's a new line, remove it and
+	// move up the caret. Trust the sync function to set the caret at the
+	// right position later. The last line may have been typed by this
+	// user when he/she pressed ENTER.
+	else if (writtenText.length() == 1) {
+	    removeLastGuiCharacter();
+	    removeLastWrittenTextCharacter();
+	    return;
+	}
+
+	// If there is two new line characters in a row, remove it from GUI
+	// but don't move down last sentence.
+	else if (writtenText.charAt(writtenText.length()-2) == '\n') {
+	    removeLastGuiCharacter();
+	    removeLastWrittenTextCharacter();
+	    return;
+	}
+
+        int counter = 0; // Just to stop looping..
+
+        // Move down last sentence!
+        while (endsWithReturn) {
+            String newText = new String(textArea.getText().toCharArray(),
+                                        0,
+                                        textArea.getText().length() - 1);
+            textArea.setText(newText);
+            n++;
+            endsWithReturn = textArea.getText().endsWith("\n");
+        }
+
+
+	int lastSentenceDelimiter =
+	    getLastSentenceDelimiter(textArea.getText());
+
+	for (int i = 0; i<n; i++) {
+	    try {
+		textArea.insert("\n",lastSentenceDelimiter + 1);
+	    }
+	    catch (Exception e) {
+		logger.throwing(this.getClass().getName(),
+				"eraseAutoNewLines", e);
+	    }
+	}
+
+	removeLastWrittenTextCharacter();
+
+    }//end method eraseAutoNewlines
+
+    /**
+     * Gets the last sentence delimiter. A delimiter is one of the following:
+     * <br><br>
+     * . <br>
+     * : <br>
+     * ; <br>
+     * ! <br>
+     * ? <br>
+     * * <br>
+     * <newline> <br>
+     *
+     * @param text The string to search for delimiters in
+     *
+     * @return The position in the string where the last delimiter was found.
+     */
+    private int getLastSentenceDelimiter(String text) {
+	int textEnd = text.length();
+
+	//DEBUG
+	if (textEnd>0) {
+		System.out.println("Char at " + (textEnd-1) + ": " + text.charAt(textEnd-1));
+	}
+	
+	while (textEnd > 0 &&
+	       (text.charAt(textEnd-1) == '.' ||
+		text.charAt(textEnd-1) == ':' ||
+		text.charAt(textEnd-1) == ';' ||
+		text.charAt(textEnd-1) == '!' ||
+		text.charAt(textEnd-1) == '?' ||
+		text.charAt(textEnd-1) == '*' ||
+		text.charAt(textEnd-1) == '\n')) {
+
+		//DEBUG
+		System.out.println("Char at " + (textEnd-1) + ": " + text.charAt(textEnd-1));
+
+	    textEnd--;
+	}
+
+	int lsd =
+	    Math.max
+	    (text.lastIndexOf('.', textEnd-1),
+	     Math.max
+	     (text.lastIndexOf(':', textEnd-1),
+	      Math.max
+	      (text.lastIndexOf(';', textEnd-1),
+	       Math.max
+	       (text.lastIndexOf('!', textEnd-1),
+		Math.max
+		(text.lastIndexOf('?', textEnd-1),
+		 Math.max
+		 (text.lastIndexOf('*', textEnd-1),
+		  text.lastIndexOf('\n', textEnd-1)))))));
+
+	// Put the new lines after space characters, but not on the first row.
+	if (lsd != -1) {
+	    while (text.charAt(lsd+1) == ' ') {
+		lsd++;
+	    }
+	}
+	return lsd;
+    }
+
+    /**
+     * Removes the last character in the text area.
+     *
+     */
+    public void removeLastGuiCharacter(){
+	// Unfortunately, I did not find any easier way to do it.
+	String txt = textArea.getText();
+	int length = txt.length();
+
+	if (length>0) {
+	    String newText = new String(txt.toCharArray(),0,length - 1);
+	    textArea.setText(newText);
+	}
+    }
+
+
+    /**
+     * Adds a character as a written character
+     *
+     * @param chr The character to add
+     */
+    public void addWrittenText(char chr) {
+	writtenText.append(chr);
+        /*System.out.println("T14TextArea, addWrittenText(), char to add is NOW -> " + chr);
+        System.out.println("T14TextArea, addWrittenText(), writtenText is NOW -> \"" + writtenText + "\"");*/
+    }
+
+    /**
+     * Removes the last character in the written text.
+     *
+     */
+    public void removeLastWrittenTextCharacter() {
+        if (writtenText.length() > 0) {
+            writtenText = writtenText.deleteCharAt(writtenText.length() - 1);
+            char[] txt = textArea.getText().toCharArray();
+        }
+    }
+
+
+    /**
+     * Adds a mouse listener to the text area
+     *
+     * @param listener The listener to add
+     */
+    public void addMouseListener(MouseListener listener) {
+	textArea.addMouseListener(listener);
+    }
+
+    /**
+     * Also counts rows, besides it's normal operation (see the extended
+     * class).
+     *
+     * @param dim The new dimension
+     */
+    public void setPreferredSize(Dimension dim) {
+	super.setPreferredSize(dim);
+
+	FontMetrics fm = getFontMetrics(getFont());
+	columns = (int)(dim.getWidth() / fm.charWidth('a'));
+    }
+
+}

@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='ISO-8859-1'  ?>
+<!DOCTYPE toc
+  PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp TOC Version 1.0//EN"
+         "http://java.sun.com/products/javahelp/toc_1_0.dtd">
+<toc version="1.0">
+  <tocitem text="Using SIPcon1">
+    <tocitem text="Introduction" target="intr">
+      <tocitem text="About SIPcon1" target="intr.about" />
+    </tocitem>
+    <tocitem text="License Agrement" target="lice"/>
+    <tocitem text="Installing and Removing SIPcon1" target="inst">
+      <tocitem text="Requirements" target="inst.requirements" />
+      <tocitem text="Platforms" target="inst.platforms" />
+      <tocitem text="Installing and Running" target="inst.instandrun">
+        <tocitem text="Windows Platforms" target="inst.instandrunWin" />
+        <tocitem text="Linux Platforms" target="inst.instandrunLinux" />
+	<tocitem text="Other Platforms" target="inst.instandrunOther" />
+      </tocitem>
+      <tocitem text="Removing" target="inst.removing">
+        <tocitem text="Windows Platforms" target="inst.removingWin" />
+        <tocitem text="Other Platforms" target="inst.removingOther" />
+      </tocitem>
+    </tocitem>
+    <tocitem text="Using SIPcon1" target="usin">
+      <tocitem text="Main Layout" target="usin.mainlayout" />
+      <tocitem text="Calling" target="usin.calling" />
+      <tocitem text="Answering Calls" target="usin.answering" />
+      <tocitem text="Using the Address Book" target="usin.addrbook">
+        <tocitem text="Add" target="usin.addrbookAdd" />
+        <tocitem text="Delete" target="usin.addrbookDel" />
+        <tocitem text="Change" target="usin.addrbookCh" />
+        <tocitem text="Dial" target="usin.addrbookDial" />
+      </tocitem>
+      <tocitem text="Saving Text" target="usin.saving" />
+      <tocitem text="Settings" target="usin.set">
+        <tocitem text="Audio" target="usin.setAudio">
+          <tocitem text="RTP Port" target="usin.setAudioPort" />
+          <tocitem text="Audio Device" target="usin.setAudioDev" />
+          <tocitem text="Audio Format" target="usin.setAudioFmt" />
+          <tocitem text="Codecs to use" target="usin.setAudioCodecs" />
+        </tocitem>
+        <tocitem text="Text" target="usin.setText">
+          <tocitem text="RTP Port" target="usin.setTextPort" />
+          <tocitem text="Buffer Time" target="usin.setTextBt" />
+          <tocitem text="Max Incoming CPS" target="usin.setTextCps" />
+          <tocitem text="RED Generations" target="usin.setTextRedgen" />
+        </tocitem>
+        <tocitem text="SIP" target="usin.setSip">
+          <tocitem text="Network - SIP-port" target="usin.setSipPort" />
+          <tocitem text="Network - Outbound Proxy" target="usin.setSipOp" />
+          <tocitem text="Network - Dial Domain" target="usin.setSipDd" />
+          <tocitem text="User - Full Name" target="usin.setSipName" />
+          <tocitem text="User - Primary SIP Address" target="usin.setSipPri" />
+          <tocitem text="Registrations" target="usin.setSipReg" />
+          <tocitem text="STUN" target="usin.setSipStun" />
+        </tocitem>
+        <tocitem text="Detect Devices" target="usin.setDetect" />
+      </tocitem>
+    </tocitem>
+    <tocitem text="Communicating Using SIP" target="comm">
+      <tocitem text="Overview" target="comm.overview"/>
+      <tocitem text="Calling a Friend with SIP" target="comm.calling"/>
+      <tocitem text="NAT Traversal" target="comm.nat"/>
+    </tocitem>
+  </tocitem>
+</toc>
+<!--
+      <tocitem text="" target="inst." />
+      <tocitem text="" target="inst." />
+-->
+
+
+
+
+
+
+
+
+

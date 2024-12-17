@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>groupId</groupId>
+    <artifactId>sipconTNG</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <properties>
+        <maven.compiler.source>23</maven.compiler.source>
+        <maven.compiler.target>23</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/javax.media/jmf -->
+        <dependency>
+            <groupId>javax.media</groupId>
+            <artifactId>jmf</artifactId>
+            <version>2.1.1e</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/net.java.stun4j/stun4j -->
+        <dependency>
+            <groupId>net.java.stun4j</groupId>
+            <artifactId>stun4j</artifactId>
+            <version>1.0.MOBICENTS</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.sdp/nist-sdp -->
+        <dependency>
+            <groupId>javax.sdp</groupId>
+            <artifactId>nist-sdp</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.sip/jain-sip-ri -->
+        <dependency>
+            <groupId>javax.sip</groupId>
+            <artifactId>jain-sip-ri</artifactId>
+            <version>1.2.344</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.sip/jain-sip-api -->
+        <dependency>
+            <groupId>javax.sip</groupId>
+            <artifactId>jain-sip-api</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+    </dependencies>
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>central</name>
+            <url>https://repo1.maven.org/maven2</url>
+        </repository>
+        <repository>
+            <id>jboss</id>
+            <name>JBoss 3rd-party Repository</name>
+            <url>https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/</url>
+        </repository>
+    </repositories>
+</project>

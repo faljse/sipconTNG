@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<HTML>
+<HEAD>
+<TITLE>
+Using SIPcon1
+</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<h1>Using SIPcon1</h1>
+<a name="mainlayout">
+<h2>Main layout</h2>
+The figure above shows the layout of the application when a call is established. <br>
+<br>
+<u>1 - Remote user's text area</u> <br>
+All text written by the remote user will appear here. <br>
+<br>
+<u>2 - Local user's text area</u> <br>
+Text that should be sent to the remote user is written here. This text area is level synchronized with the remote user's text area (1). <br>
+<br>
+<u>3 - Call controls</u> <br>
+These call controls are used when calling and disconnecting. <br>
+<br>
+<u>4 - Audio controls</u> <br>
+Allows the user to change and mute the volume of the speakers and the microphone. <br>
+<br>
+<u>5 - Address book</u> <br>
+Click on a row in the address book in order to put the selected row's SIP address into the call control's text area (3). Add or delete rows with the control buttons at the bottom. <br>
+<br>
+<u>6 - Call status</u> <br>
+This status box will inform the user if a call is connected, disconnected, missed etc. <br>
+<br>
+<u>7, 8 - Audio and text status</u> <br>
+These status boxes will inform the user about the status of the audio and text transmission. They can have the following status texts:
+<ul>
+<li>Trying</li>
+<li>On</li>
+<li>In only</li>
+<li>Out only</li>
+<li>Failed</li>
+</ul>
+If no text is shown, audio is disabled or no call is established. Hold the mouse pointer over a status box to see which codecs that currently are in use. <br>
+<br>
+<u>9 - SIP registration status</u> <br>
+This status box informs the user about the status of the SIP registration. Refer to the SIP chapter for more information about SIP. <br>
+<br>
+Note that the SIP registration has nothing to do with program registrations, shareware registration, and similar registrations. This status box only informs about whether the client is registered to a SIP server or not. <br>
+<br>
+The status can be one of the following lines:
+<ul>
+<li><i>"Registered with a SIP server"</i> -  SIPcon1 has successfully registered itself to a SIP server and may receive calls to the SIP address</li>
+<li><i>"Not registered"</i> - There are no SIP registrations in the SIP settings. SIPcon1 is not registered to a SIP server.</li>
+<li><i>"Failed"</i> - The SIP registration failed due to wrong host name, user name, password or SIP address</li>
+</ul>
+
+<a name="calling">
+<h2>Calling</h2>
+Write the SIP address in the call control's text area to call another person, or click on a name in the address book. Then, press the "Call" button. SIPcon1 will inform about the calling process through different messages:
+<ul>
+<li><i>"Calling"</i> - SIPcon1 has sent a call invitation to the remote client but not yet still received any response.</li>
+<li><i>"Host contacted"</i> - The remote host, or a network device in the path, has answered but not yet confirmed that the call may be placed.</li>
+<li><i>"Waiting for remote user to answer"</i> - A ring signal is played in the other end and the system is waiting for the other party to answer the call.</li>
+</ul>
+SIPcon1 will continue calling endlessly until the call is manually aborted or rejected. <br>
+
+<a name="answering">
+<h2>Answering calls</h2>
+When an incoming call arrives, a popup window is shown.<br>
+<br>
+Click the "Answer" button to answer an incoming call. <br>
+
+<a name="addrbook">
+<h2>Using the Address Book</h2>
+The address book is located to the right in the main window, clicking the tab named "Address" will show it. The entries in the address book are always sorted by name. <br>
+
+<a name="addrbookAdd">
+<h3>Add</h3>
+In order to add a new entry, click the "New" button at the bottom of the address book. A dialog will show up asking for name and SIP address. Click "OK" to save the new entry or "Cancel" to abort. <br>
+
+<a name="addrbookDel">
+<h3>Delete</h3>
+In order to delete an existing entry, select the entry and click the "Delete" button at the bottom of the address book. A dialog box asks for confirmation. <br>
+
+<a name="addrbookCh">
+<h3>Change</h3>
+In order to change the information in an entry, use the "Change" button at the bottom of the address book. A dialog allow changes to be made, then click "OK" to apply changes or "Cancel" to ignore changes. <br> 
+
+<a name="addrbookDial">
+<h3>Dial</h3>
+In order to dial a person in the address book, double click the line to call or select the row to call and click the "Call" button in the call control box. <br>
+
+<a name="saving">
+<h2>Saving Text</h2>
+To save the contents of the remote and local text area, click on the "File" menu, then click on "Save text". A new dialog will open where you can choose directory and file name. <br<
+
+<a name="set">
+<h2>Settings</h2>
+Change or display settings by using the settings menu at the top of the window. <br>
+
+<a name="setAudio">
+<h3>Audio</h3>
+The audio settings can be found under the "Settings" menu at the top of the main window. The audio settings popup window gives opportunities to set up port, device, format and codecs. If no audio devices are available in the system, there is nothing to do here. If the choices in this settings dialog box don't match the systems capabilities, use the "Detect devices" choice in the "Settings" menu (read more about detecting devices later in this document). <br>
+
+<a name="setAudioPort">
+<h4>RTP Port</h4>
+This is the port that should be used for incoming audio streams. The port should only be changed if there are conflicts with other applications in the system. For outgoing audio streams, the application automatically searches for a free port to use. <br>
+
+<a name="setAudioDev">
+<h4>Audio device</h4>
+This is the audio device that should be used when capturing and playing audio. <br>
+
+<a name="setAudioFmt">
+<h4>Audio format</h4>
+This is the format of the audio that is transmitted to the other host in a session. <br>
+
+<a name="setAudioCodecs">
+<h4>Codecs to use</h4>
+This box is used to activate or deactivate the codecs that are offered to the remote host in the set-up phase of a session. To achieve best compatibility with other applications, all codecs should be activated. The codecs should only be deactivated in experimental sessions. To see which codecs that are active during a call, hold the mouse pointer over the audio status bar at the bottom of the main window. <br>
+
+<a name="setText">
+<h3>Text</h3>
+The text settings can be found under the "Settings" menu at the top of the main window. The text settings dialog box gives opportunities to set up port, buffering time, CPS and redundant generations. <br>
+
+<!--text image-->
+
+<a name="setTextPort">
+<h4>RTP port</h4>
+This is the port that should be used for incoming text streams. This should only be changed if there are conflicts with other applications in the system. For outgoing text streams, the application automatically searches for a free port to use. <br>
+
+<a name="setTextBt">
+<h4>Buffer Time</h4>
+When typing text, the characters are not sent immediately to the remote computer. In order to lower the bandwidth, the characters are buffered a specified amount of time. The buffering time is specified in milliseconds.<br>
+
+<a name="setTextCps">
+<h4>Max Incoming CPS</h4>
+This is the desired rate for incoming text, it is specified in characters per seconds (CPS). Note that this setting depends on the remote host. The CPS value is sent to the remote host at an initial stage of the session and it is always up to the remote host to follow this CPS request. This is a quite new setting, released in the end of 2004 and will maybe not be understood by older applications. Therefore, don't rely on this setting, as it will only work when the remote host understands the CPS demand. <br>
+
+<a name="setTextRedgen">
+<h4>RED Generations</h4>
+This specifies the number of redundant generations. When sending text, every character is sent several times in order to avoid packet loss on the network. The number of redundant generations specifies how many times a character should be re-sent. Setting this value to a zero will disable redundancy, and all characters are only sent once. The recommended setting is two redundant generations.<br>
+
+<a name="setSip">
+<h3>SIP</h3>
+<a name="setSipPort">
+<h4>Network - SIP-port</h4>
+SIP port shows which SIP port the application has chosen. Normally, port 5060 is used. If 5060 is already in use by another application, SIPcon1 will automatically search for another port to use. <br>
+
+<a name="setSipOp">
+<h4>Network - Outbound Proxy</h4>
+If the local network has a firewall that doesn't handle SIP, a SIP capable firewall extension (SIP ALG) should be plugged into the network parallel to the firewall. When using a SIP ALG, the outbound proxy has to be set to the IP address of the SIP ALG. <br>
+
+<a name="setSipDd">
+<h4>Network - Dial Domain</h4>
+When calling a SIP address, the complete SIP address has to be entered in the call control text field. When using a dial domain, only the username has to be entered in the control text field. SIPcon1 then adds the dial domain as the SIP host. <br>
+<br>
+E.g. if the dial domain is "sip.omnitor.se" and the user writes "test" in the call control text field, SIPcon1 will call "test@sip.omnitor.se". <br>
+
+<a name="setSipName">
+<h4>User - Full Name</h4>
+The user's full name. This is presented to other SIP clients when calling and receiving calls. <br>
+
+<a name="setSipPri">
+<h4>User - Primary SIP Address</h4>
+If several SIP registrations are used, the primary SIP address should be written here. If only one SIP registration is used, write the SIP address here. This primary SIP address is used when calling other hosts. <br>
+
+<a name="setSipReg">
+<h4>Registrations</h4>
+SIPcon1 is able to handle several simultaneous registrations. Use the "New", "Edit" and "Delete" buttons to add, edit and remove registrations. <br>
+<ul>
+<li>SIP address is the SIP address to be registered.</li>
+<li>Registrar is the registrar's host name</li>
+<li>Username is the username at the registrar</li>
+<li>Password is the password required by the registrar to accept the registration.</li>
+</ul>
+E.g if "test@sip.omnitor.se" is to be registered with the password "foo", the information should normally be: <br>
+<br>
+<u>SIP address:</u> test@sip.omnitor.se <br>
+<u>Registrar:</u> sip.omnitor.se <br>
+<u>Username:</u> test <br>
+<u>Password:</u> foo <br>
+<br>
+Note that the username and registrar may differ from the information in the SIP address. Please contact your SIP account provider to get the correct information. <br>
+
+<a name="setSipStun">
+<h4>STUN</h4>
+STUN is used to determine what type of firewall or NAT your network uses, and how to pass it. SIPcon1 will try to find a STUN server based on the information in the SIP registrations box. If SIPcon1 cannot find any STUN server, please provide a server in the "STUN server address" box. Open STUN servers are available on internet, use Google to find one. <br>
+<br>
+If you use a firewall or NAT with built-in SIP functionality, then STUN may confuse the firewall and cause it to block the traffic. In this case, turn off the STUN functionality by checking the "Turn off STUN functionality" box. <br>
+<br>
+There are three modes of STUN:
+<ul>
+<li><i>Turn off STUN functionality</i> - STUN is not used.</li>
+<li><i>Automatic STUN</i> - SIPcon1 detects the network configuration and automatically enables/disables STUN functionality.</li>
+<li><i>Force enabled STUN</i> - STUN is enabled in all cases.</li>
+</ul>
+When automatic STUN is chosen, SIPcon1 also tries to detect SIP compatible NATs. If a SIP compatible NAT is found, STUN is disabled.<br>
+<br>
+Automatic STUN is the recommended setting. If you have problems with communications, try using the other modes.<br>
+<br>
+Click the "STUN status" button to see what network configuration STUN has detected. <br>
+
+<a name="setDetect">
+<h3>Detect devices</h3>
+If the audio devices in the audio settings are different from the system's capabilities, the devices have to be re-detected. Every time the application is started, this detection is done automatically. Devices may change during run-time as new USB audio devices are either plugged in or removed, detection is necessary to use the newly plugged in devices. <br>
+<br>
+<!--picture here--> 
+
+In order to detect devices, click on the "Detect devices" option in the "Settings" menu at the top of the main window. Note that the detection may take a while, depending on what hardware there are installed on the computer. <br>
+</body>
+</HTML>

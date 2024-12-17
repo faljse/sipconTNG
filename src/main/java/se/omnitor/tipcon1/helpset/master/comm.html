@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+<TITLE>
+Communicating Using SIP
+</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<H1>Communicating Using SIP</H1>
+<a name="overview">
+<h2>Overview</h2>
+When using Internet for telephone traffic, two main signalling protocols are in use. They are named H.323 and Session Initiation Protocol (SIP). <br>
+<br>
+SIP could be built in different kinds of units, such as IP telephones, handheld computers, cellular phones and stationary computers. When using a SIP client in a computer, we call if a SIP soft phone. <br>
+<br>
+In order to get two SIP units to communicate, they have to support the same codecs. A codec is a module specifying how to represent audio, video or text in a digital environment and how to send it over the network. If two SIP units would like to communicate there should be no problem calling each other. But to be able to speak, write or see each other, the two units have to have at least one codec in common. <br>
+
+<a name="calling">
+<h2>Calling a Friend with SIP</h2>
+When calling a friend using today's telephone network, we can either call the friend on the home telephone number or on the cellular telephone number. When using SIP, there is no need to know two numbers. The friend will only have one number, which will take the caller to the SIP unit the friend is using at the moment. The number is called a "SIP address", and looks exactly like an email address, e.g. harry@mycompany.com. <br>
+
+<a name="nat">
+<h2>NAT Traversal</h2>
+Today, many users have a network environment with internal IP addresses, and a gateway representing all the computers on the local network with one single IP address on the outside. This is called Network Address Translation (NAT), and is a problem for SIP. <br>
+<br>
+SIPcon1 uses STUN for solving NAT problems. Note that STUN cannot pass all types of NATs, therefore it is recommended to use SIP-aware gateways and firewalls. <br>
+</body>
+</HTML>

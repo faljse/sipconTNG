@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE map
+  PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp Map Version 1.0//EN"
+         "http://java.sun.com/products/javahelp/map_1_0.dtd">
+
+<map version="1.0">
+  <mapID target="intr" url="master/intr.html" />
+  <mapID target="intr.about" url="master/intr.html#about" />
+  <mapID target="lice" url="master/lice.html" />
+  <mapID target="inst" url="master/inst.html" />
+  <mapID target="inst.requirements" url="master/inst.html#requirements" />
+  <mapID target="inst.platforms" url="master/inst.html#platforms" />
+  <mapID target="inst.instandrun" url="master/inst.html#instandrun" />
+  <mapID target="inst.instandrunWin" url="master/inst.html#instandrunWin" />
+  <mapID target="inst.instandrunLinux" url="master/inst.html#instandrunLinux" />
+  <mapID target="inst.instandrunOther" url="master/inst.html#instandrunOther" />
+  <mapID target="inst.removing" url="master/inst.html#removing" />
+  <mapID target="inst.removingWin" url="master/inst.html#removingWin" />
+  <mapID target="inst.removingOther" url="master/inst.html#removingOther" />
+  <mapID target="usin" url="master/usin.html">
+  <mapID target="usin.mainlayout" url="master/usin.html#mainlayout" />
+  <mapID target="usin.calling" url="master/usin.html#calling" />
+  <mapID target="usin.answering" url="master/usin.html#answering" />
+  <mapID target="usin.addrbook" url="master/usin.html#addrbook" />
+  <mapID target="usin.addrbookAdd" url="master/usin.html#addrbookAdd" />
+  <mapID target="usin.addrbookDel" url="master/usin.html#addrbookDel" />
+  <mapID target="usin.addrbookCh" url="master/usin.html#addrbookCh" />
+  <mapID target="usin.addrbookDial" url="master/usin.html#addrbookDial" />
+  <mapID target="usin.saving" url="master/usin.html#saving" />
+  <mapID target="usin.set" url="master/usin.html#set" />
+  <mapID target="usin.setAudio" url="master/usin.html#setAudio" />
+  <mapID target="usin.setAudioPort" url="master/usin.html#setAudioPort" />
+  <mapID target="usin.setAudioDev" url="master/usin.html#setAudioDev" />
+  <mapID target="usin.setAudioFmt" url="master/usin.html#setAudioFmt" />
+  <mapID target="usin.setAudioCodecs" url="master/usin.html#setAudioCodecs" />
+  <mapID target="usin.setText" url="master/usin.html#setText" />
+  <mapID target="usin.setTextPort" url="master/usin.html#setTextPort" />
+  <mapID target="usin.setTextBt" url="master/usin.html#setTextBt" />
+  <mapID target="usin.setTextCps" url="master/usin.html#setTextCps" />
+  <mapID target="usin.setTextRedgen" url="master/usin.html#setTextRedgen" />
+  <mapID target="usin.setSip" url="master/usin.html#setSip" />
+  <mapID target="usin.setSipPort" url="master/usin.html#setSipPort" />
+  <mapID target="usin.setSipOp" url="master/usin.html#setSipOp" />
+  <mapID target="usin.setSipDd" url="master/usin.html#setSipDd" />
+  <mapID target="usin.setSipName" url="master/usin.html#setSipName" />
+  <mapID target="usin.setSipPri" url="master/usin.html#setSipPri" />
+  <mapID target="usin.setSipReg" url="master/usin.html#setSipReg" />
+  <mapID target="usin.setSipStun" url="master/usin.html#setSipStun" />
+  <mapID target="usin.setDetect" url="master/usin.html#setDetect" />
+  <mapID target="comm" url="master/comm.html#" />
+  <mapID target="comm.overview" url="master/comm.html#overview" />
+  <mapID target="comm.calling" url="master/comm.html#calling" />
+  <mapID target="comm.nat" url="master/comm.html#nat" />
+-->
+</map>
