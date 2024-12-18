@@ -4116,7 +4116,7 @@ public class AppController implements SipControllerListener {
      */
     private String getNextNetworkHop() throws SocketException, UnknownHostException {
         try(DatagramSocket s=new DatagramSocket()) {
-            s.connect(InetAddress.getByAddress(new byte[]{1,1,1,1}), 0);
+            s.connect(InetAddress.getByAddress(new byte[]{1,1,1,1}), 1);
             var adr=NetworkInterface.getByInetAddress(s.getLocalAddress()).getInetAddresses().nextElement();
             return adr.getHostAddress();
         }
