@@ -51,6 +51,10 @@ import javax.sip.message.*;
 import javax.sip.header.*;
 import javax.sip.address.*;
 
+import com.sun.media.rtsp.protocol.ResponseMessage;
+import gov.nist.javax.sip.address.SipUri;
+import gov.nist.javax.sip.header.Authorization;
+import gov.nist.javax.sip.message.SIPResponse;
 import se.omnitor.protocol.sip.*;
 import se.omnitor.protocol.sip.event.*;
 
@@ -104,6 +108,7 @@ public class OutgoingCallDialog extends DialogHandler {
 
     /**
      * Initializes.
+     * Initializes.
      *
      * @param sc The SIP controller used
      * @param cp The CallProcessor assigned to this call
@@ -156,6 +161,9 @@ public class OutgoingCallDialog extends DialogHandler {
 	case 200:
 	    process200Response(response);
 	    break;
+	case 401:
+		process401Response(response);
+		break;
 	case 407:
 	    process407Response(response);
 	    break;
@@ -176,6 +184,42 @@ public class OutgoingCallDialog extends DialogHandler {
 	    //rp.removeTransaction(currentTransaction);
 	}
     }
+
+	/**
+	 * Processes a 401 response
+	 *
+	 * @param response The 401 response
+	 */
+
+    private void process401Response(Response response) {
+	// Don't try this in an endless loop, give up after a few tries.
+	// Implement this later
+	if (requestNbr > 5) {
+		sc.signalOutgoingCallError(this, 401);
+		return;
+	}
+
+	String username=sc.getAuthInfo(((SipUri)requestUri).getAuthority().getHostPort().getHost().getAddress(),"").getUsername();
+	String password=sc.getAuthInfo(((SipUri)requestUri).getAuthority().getHostPort().getHost().getAddress(),"").getPassword();
+	AuthorizationHeader authHeader =
+	    createAuthorizationHeader(response, "INVITE",
+				      requestUri, requestNbr,
+				      username, password, firstAuthTry);
+
+	firstAuthTry = false;
+	requestNbr++;
+
+	if (authHeader == null) {
+		sc.signalOutgoingCallError(this, 401);
+		return;
+	}
+
+	ClientTransaction ct = send(authHeader);
+	cp.removeTransaction(currentTransaction);
+	cp.addTransaction(ct, this);
+	currentTransaction = ct;
+    }
+
 
     /**
      * Processes a timeout event
@@ -328,8 +372,6 @@ public class OutgoingCallDialog extends DialogHandler {
      * @param from The From header
      * @param callId The Call-ID header
      * @param contact The Contact header
-     * @param username The username, if authentication is used
-     * @param password The password, if authentication is used
      */
     protected ClientTransaction invite(URI requestUri, ToHeader to,
 				       FromHeader from,
@@ -343,11 +385,8 @@ public class OutgoingCallDialog extends DialogHandler {
 	this.callId = callId;
 	this.contact = contact;
 	this.sdp = sdp;
-
 	ClientTransaction ct = send(null);
-
 	currentTransaction = ct;
-
 	return ct;
 
     }
