@@ -20,18 +20,6 @@
             <artifactId>jmf</artifactId>
             <version>2.1.1e</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/javax.sip/jain-sip-ri -->
-        <dependency>
-            <groupId>javax.sip</groupId>
-            <artifactId>jain-sip-ri</artifactId>
-            <version>1.2.344</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/javax.sip/jain-sip-api -->
-        <dependency>
-            <groupId>javax.sip</groupId>
-            <artifactId>jain-sip-api</artifactId>
-            <version>1.2.1.4</version>
-        </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
